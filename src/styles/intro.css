@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background-color: black;
 }
 
 .ballpit-container {
@@ -37,7 +38,7 @@
 
 .main-title {
   color: white;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 300;
   margin-bottom: 20px;
   line-height: 1.4;
@@ -46,14 +47,14 @@
 
 .sub-title {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   font-weight: 300;
   opacity: 0.9;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .start-button {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 500;
   min-width: 200px;
 }

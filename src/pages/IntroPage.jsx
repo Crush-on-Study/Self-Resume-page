@@ -1,6 +1,7 @@
 import React from 'react';
-import Ballpit from '../components/external/Ballpit';
+import Ballpit from '../components/external/orb';
 import Button from '../components/common/button';
+import ShinyText from '../components/external/shinyText';
 import '../styles/intro.css';
 
 const IntroPage = ({ onStart }) => {
@@ -15,10 +16,10 @@ const IntroPage = ({ onStart }) => {
       <div className="intro-content">
         <div className="intro-text">
           <h1 className="main-title">
-            사람은 누구든 창작 욕구가 있다, 나는 그걸 화면에 옮겼다.
+            <ShinyText text="사람은 누든 창작 욕구가 있다, 나는 그걸 화면에 옮겼다." disabled={false} speed={3} className='custom-class' />
           </h1>
           <p className="sub-title">
-            풀스택을 꿈꾸는 방구석 개발자
+            <ShinyText text="풀스택을 꿈꾸는 방구석 개발자" disabled={false} speed={3} className='custom-class' />
           </p>
         </div>
         
