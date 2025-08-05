@@ -1,0 +1,57 @@
+.opening-rotating-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.opening-rotating-background {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  transform-origin: left center;
+  position: relative;
+  overflow: hidden;
+}
+
+.opening-rotating-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #a855f7, #c084fc, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.opening-rotating-background:hover::before {
+  opacity: 1;
+}
+
+.opening-rotating-text {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 애니메이션 효과 */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(139, 92, 246, 0.6);
+  }
+}
+
+.opening-rotating-background {
+  animation: glow 2s ease-in-out infinite;
+} 

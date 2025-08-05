@@ -3,9 +3,9 @@ export const ROUTES = {
   INTRO: '/',
   HOME: '/home',
   SKILLS: '/skills',
+  EXPERIENCE: '/experience',
   PROJECTS_FUN: '/projects-fun',
-  PROJECTS_COMPANY: '/projects-company',
-  CONTACT: '/contact'
+  PROJECTS_COMPANY: '/projects-company'
 };
 
 // 네비게이션 메뉴 설정
@@ -21,6 +21,11 @@ export const NAV_ITEMS = [
     route: ROUTES.SKILLS 
   },
   { 
+    label: 'Experience', 
+    href: '/experience', 
+    route: ROUTES.EXPERIENCE 
+  },
+  { 
     label: 'Projects for fun', 
     href: '/projects-fun', 
     route: ROUTES.PROJECTS_FUN 
@@ -29,10 +34,5 @@ export const NAV_ITEMS = [
     label: 'Projects in Company', 
     href: '/projects-company', 
     route: ROUTES.PROJECTS_COMPANY 
-  },
-  { 
-    label: 'Contact', 
-    href: '/contact', 
-    route: ROUTES.CONTACT 
   }
 ]; 

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import ShinyText from "../external/shinyText";
 import "../../styles/GooeyNav.css";
 
 const GooeyNav = ({
@@ -100,6 +101,7 @@ const GooeyNav = ({
   };
 
   const handleClick = (e, index) => {
+    e.preventDefault(); // 기본 href 동작 방지
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
 
@@ -108,18 +110,25 @@ const GooeyNav = ({
 
     if (filterRef.current) {
       const particles = filterRef.current.querySelectorAll(".particle");
-      particles.forEach((p) => filterRef.current.removeChild(p));
+      particles.forEach((p) => {
+        try {
+          filterRef.current.removeChild(p);
+        } catch (e) {
+          // 이미 제거된 경우 무시
+        }
+      });
     }
 
     if (textRef.current) {
       textRef.current.classList.remove("active");
-
       void textRef.current.offsetWidth;
       textRef.current.classList.add("active");
     }
 
     if (filterRef.current) {
-      makeParticles(filterRef.current);
+      setTimeout(() => {
+        makeParticles(filterRef.current);
+      }, 50);
     }
   };
 
@@ -139,6 +148,13 @@ const GooeyNav = ({
     if (activeLi) {
       updateEffectPosition(activeLi);
       textRef.current?.classList.add("active");
+      
+      // 초기 로드 시에도 이펙트 표시
+      setTimeout(() => {
+        if (filterRef.current) {
+          makeParticles(filterRef.current);
+        }
+      }, 100);
     }
 
     const resizeObserver = new ResizeObserver(() => {
@@ -164,10 +180,20 @@ const GooeyNav = ({
             >
               <a
                 href={item.href}
-                onClick={(e) => handleClick(e, index)}
+                onClick={(e) => {
+                  handleClick(e, index);
+                  if (item.onClick) {
+                    item.onClick();
+                  }
+                }}
                 onKeyDown={(e) => handleKeyDown(e, index)}
               >
-                {item.label}
+                <ShinyText 
+                  text={item.label} 
+                  disabled={activeIndex !== index}
+                  speed={2}
+                  className="nav-text"
+                />
               </a>
             </li>
           ))}

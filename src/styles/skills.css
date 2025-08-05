@@ -22,6 +22,14 @@
 .skills-header {
   text-align: center;
   margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tip-box-button {
+  margin-top: 1rem;
 }
 
 .skills-title {
@@ -48,60 +56,7 @@
   align-items: center;
 }
 
-/* Main Nodes */
-.main-node {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
 
-.personal-node {
-  left: 20%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(135deg, #4A90E2, #357ABD);
-  box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
-}
-
-.company-node {
-  right: 20%;
-  top: 50%;
-  transform: translate(50%, -50%);
-  background: linear-gradient(135deg, #7B68EE, #6A5ACD);
-  box-shadow: 0 0 20px rgba(123, 104, 238, 0.5);
-}
-
-.main-node:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow: 0 0 30px rgba(74, 144, 226, 0.8);
-}
-
-.company-node:hover {
-  transform: translate(50%, -50%) scale(1.1);
-  box-shadow: 0 0 30px rgba(123, 104, 238, 0.8);
-}
-
-.node-content {
-  text-align: center;
-  color: white;
-}
-
-.node-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.node-label {
-  font-size: 1rem;
-  font-weight: bold;
-}
 
 /* Tech Nodes */
 .tech-node {
@@ -116,16 +71,21 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 8;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .tech-node:hover {
-  transform: scale(1.2);
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.2),
+    inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .tech-icon {
@@ -140,58 +100,171 @@
   line-height: 1;
 }
 
-/* Personal Tech Node Positions */
-.tech-node-1 { left: 28%; top: 20%; }
-.tech-node-2 { left: 36%; top: 40%; }
-.tech-node-3 { left: 44%; top: 20%; }
-.tech-node-4 { left: 52%; top: 40%; }
-.tech-node-5 { left: 60%; top: 20%; }
-.tech-node-6 { left: 68%; top: 40%; }
-.tech-node-7 { left: 76%; top: 20%; }
+/* Personal Tech Node Positions - 더 넓게 배치 */
+.tech-node-1 { left: 10%; top: 10%; animation: float1 8s ease-in-out infinite; }
+.tech-node-2 { left: 20%; top: 30%; animation: float2 10s ease-in-out infinite; }
+.tech-node-3 { left: 30%; top: 10%; animation: float3 12s ease-in-out infinite; }
+.tech-node-4 { left: 40%; top: 30%; animation: float4 9s ease-in-out infinite; }
+.tech-node-5 { left: 50%; top: 10%; animation: float5 11s ease-in-out infinite; }
+.tech-node-6 { left: 60%; top: 30%; animation: float6 13s ease-in-out infinite; }
+.tech-node-7 { left: 70%; top: 10%; animation: float7 7s ease-in-out infinite; }
 
-/* Company Tech Node Positions */
-.tech-node-company-1 { right: 28%; top: 20%; }
-.tech-node-company-2 { right: 36%; top: 40%; }
-.tech-node-company-3 { right: 44%; top: 20%; }
-.tech-node-company-4 { right: 52%; top: 40%; }
+/* Company Tech Node Positions - 더 넓게 배치 */
+.tech-node-company-1 { right: 10%; top: 10%; animation: float8 9s ease-in-out infinite; }
+.tech-node-company-2 { right: 20%; top: 30%; animation: float9 11s ease-in-out infinite; }
+.tech-node-company-3 { right: 30%; top: 10%; animation: float10 8s ease-in-out infinite; }
+.tech-node-company-4 { right: 40%; top: 30%; animation: float11 12s ease-in-out infinite; }
 
-/* Connection Lines */
-.connections {
+/* Floating Animations - 민들레 홀씨처럼 천천히 떠다니는 애니메이션 (더 넓은 이동 반경) */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(40px, -30px) rotate(8deg); }
+  50% { transform: translate(-20px, -50px) rotate(-6deg); }
+  75% { transform: translate(-30px, -20px) rotate(4deg); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-30px, -40px) rotate(-8deg); }
+  50% { transform: translate(50px, -30px) rotate(12deg); }
+  75% { transform: translate(20px, -60px) rotate(-4deg); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(60px, -20px) rotate(6deg); }
+  50% { transform: translate(-40px, -40px) rotate(-10deg); }
+  75% { transform: translate(-20px, -30px) rotate(8deg); }
+}
+
+@keyframes float4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-50px, -30px) rotate(-12deg); }
+  50% { transform: translate(30px, -50px) rotate(4deg); }
+  75% { transform: translate(40px, -20px) rotate(-6deg); }
+}
+
+@keyframes float5 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, -40px) rotate(8deg); }
+  50% { transform: translate(-60px, -30px) rotate(-4deg); }
+  75% { transform: translate(-30px, -50px) rotate(10deg); }
+}
+
+@keyframes float6 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-40px, -20px) rotate(-6deg); }
+  50% { transform: translate(50px, -40px) rotate(12deg); }
+  75% { transform: translate(30px, -30px) rotate(-8deg); }
+}
+
+@keyframes float7 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(70px, -30px) rotate(10deg); }
+  50% { transform: translate(-30px, -50px) rotate(-4deg); }
+  75% { transform: translate(-50px, -20px) rotate(6deg); }
+}
+
+@keyframes float8 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-60px, -30px) rotate(-8deg); }
+  50% { transform: translate(40px, -40px) rotate(12deg); }
+  75% { transform: translate(20px, -50px) rotate(-6deg); }
+}
+
+@keyframes float9 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(50px, -20px) rotate(10deg); }
+  50% { transform: translate(-30px, -50px) rotate(-4deg); }
+  75% { transform: translate(-40px, -30px) rotate(8deg); }
+}
+
+@keyframes float10 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-40px, -40px) rotate(-12deg); }
+  50% { transform: translate(60px, -30px) rotate(6deg); }
+  75% { transform: translate(30px, -50px) rotate(-10deg); }
+}
+
+@keyframes float11 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -50px) rotate(8deg); }
+  50% { transform: translate(-50px, -20px) rotate(-6deg); }
+  75% { transform: translate(-20px, -40px) rotate(12deg); }
+}
+
+/* Node Tooltip Styles */
+.node-tooltip {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  pointer-events: none;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 200px;
+  max-width: 250px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 
-.connection-line {
-  stroke: rgba(255, 255, 255, 0.3);
-  stroke-width: 2;
-  stroke-dasharray: 5, 5;
-  animation: dash 20s linear infinite;
+.node-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid rgba(0, 0, 0, 0.95);
 }
 
-.personal-line {
-  stroke: rgba(74, 144, 226, 0.6);
+.node-tooltip .tooltip-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.company-line {
-  stroke: rgba(123, 104, 238, 0.6);
+.node-tooltip .tooltip-icon {
+  font-size: 1.2rem;
 }
 
-.shared-line {
-  stroke: rgba(255, 255, 255, 0.8);
-  stroke-width: 3;
-  stroke-dasharray: 10, 5;
-  animation: dash 15s linear infinite;
+.node-tooltip .tooltip-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-@keyframes dash {
-  to {
-    stroke-dashoffset: -1000;
-  }
+.node-tooltip .tooltip-content h4 {
+  color: #4CAF50;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.node-tooltip .tooltip-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.node-tooltip .tooltip-content li {
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.2rem 0;
+  border-left: 2px solid #4A90E2;
+  padding-left: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 /* Tooltip */
@@ -273,6 +346,8 @@
   padding-left: 0.5rem;
   margin-bottom: 0.3rem;
 }
+
+
 
 /* Responsive Design */
 @media (max-width: 1200px) {

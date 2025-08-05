@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Ballpit from '../components/external/Ballpit';
 import Button from '../components/common/button';
 import ShinyText from '../components/external/shinyText';
-import RotatingText from '../components/external/RotatingText';
+import OpeningRotatingText from '../components/external/OpeningRotatingText';
 import '../styles/intro.css';
 import '../styles/Ballpit.css';
-import '../styles/RotatingText.css';
+import '../styles/OpeningRotatingText.css';
 
 const IntroPage = () => {
   const navigate = useNavigate();
@@ -56,30 +56,13 @@ const IntroPage = () => {
         <div className="rotating-text-container">
           <div className="intro-rotating-text">
             <span className="static-text">Creative </span>
-            <RotatingText
+            <OpeningRotatingText
               texts={[
-                "component⁵.",
-                "developer⁵.",
-                "designer⁵.",
-                "creator⁵.",
-                "innovator⁵."
+                "Action?",
+                "BinKoon!"
               ]}
-              mainClassName="rotating-word-box"
-              staggerFrom="last"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2000}
-              loop={false}
-              auto={true}
-              onNext={(index) => {
-                if (index === 4) { // 마지막 텍스트가 끝나면
-                  handleRotatingTextComplete();
-                }
-              }}
+              rotationInterval={1500}
+              onComplete={handleRotatingTextComplete}
             />
           </div>
         </div>
@@ -97,7 +80,7 @@ const IntroPage = () => {
           <Button 
             onClick={handleStart}
             className="start-button"
-            color="#00ff88"
+            color="#00ff88,#FFD700,#5DE0F0,#FF6B6B"
             speed="4s"
             thickness={2}
           >

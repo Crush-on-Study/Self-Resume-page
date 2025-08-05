@@ -9,6 +9,15 @@ const Button = ({
   children,
   ...rest
 }) => {
+  // 여러 색상을 처리하는 함수
+  const createGradient = (colors) => {
+    if (colors.includes(',')) {
+      const colorArray = colors.split(',').map(c => c.trim());
+      return `radial-gradient(circle, ${colorArray.join(', transparent 10%, ')}, transparent 10%)`;
+    }
+    return `radial-gradient(circle, ${colors}, transparent 10%)`;
+  };
+
   return (
     <Component 
       className={`star-border-container ${className}`} 
@@ -21,14 +30,14 @@ const Button = ({
       <div
         className="border-gradient-bottom"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
+          background: createGradient(color),
           animationDuration: speed,
         }}
       ></div>
       <div
         className="border-gradient-top"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
+          background: createGradient(color),
           animationDuration: speed,
         }}
       ></div>

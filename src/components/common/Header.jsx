@@ -23,13 +23,17 @@ const Header = ({ activeIndex = 0 }) => {
       <div className="header-left">
         <div className="profile-pic-small">
           <div className="profile-image-placeholder">
-            {/* 사진이 준비되면 여기에 이미지 추가 */}
+            <img 
+              src="/profile.jpeg" 
+              alt="Profile" 
+              className="profile-image"
+            />
           </div>
           <div className="profile-glow"></div>
         </div>
         <div className="header-text">
-          <h2 className="header-name">FAWZIUIUX</h2>
-          <p className="header-title">A DESIGNER</p>
+          <h2 className="header-name">BinKoon</h2>
+          <p className="header-title">Cookie papa</p>
         </div>
       </div>
       <div className="header-right">

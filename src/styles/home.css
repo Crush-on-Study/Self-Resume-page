@@ -157,6 +157,20 @@
   justify-content: center;
   color: #666;
   font-size: 1.2rem;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .placeholder-text {
@@ -190,19 +204,34 @@
 
 /* GooeyNav 다크모드 스타일 오버라이드 */
 .gooey-nav-container nav ul {
-  color: #ffffff;
+  color: #000000;
 }
 
 .gooey-nav-container nav ul li {
-  color: #cccccc;
+  color: #000000;
 }
 
 .gooey-nav-container nav ul li.active {
-  color: #4CAF50;
+  color: #FFD700;
 }
 
 .gooey-nav-container nav ul li::after {
-  background: #4CAF50;
+  background: transparent;
+}
+
+/* GooeyNav 이펙트가 제대로 보이도록 z-index 조정 */
+.gooey-nav-container .effect {
+  z-index: 2 !important;
+}
+
+.gooey-nav-container nav ul {
+  z-index: 4 !important;
+}
+
+/* GooeyNav 컨테이너가 제대로 보이도록 */
+.gooey-nav-container {
+  position: relative;
+  z-index: 10;
 }
 
 /* Responsive Design */
