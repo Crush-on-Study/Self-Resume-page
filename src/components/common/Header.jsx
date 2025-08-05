@@ -21,7 +21,7 @@ const Header = ({ activeIndex = 0 }) => {
   return (
     <header className="header">
       <div className="header-left">
-        <div className="profile-pic-small">
+        <div className="profile-pic-small" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
           <div className="profile-image-placeholder">
             <img 
               src="/profile.jpeg" 

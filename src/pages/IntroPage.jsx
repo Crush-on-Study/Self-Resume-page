@@ -4,6 +4,7 @@ import Ballpit from '../components/external/Ballpit';
 import Button from '../components/common/button';
 import ShinyText from '../components/external/shinyText';
 import OpeningRotatingText from '../components/external/OpeningRotatingText';
+import GlareHover from '../components/common/GlareHover';
 import '../styles/intro.css';
 import '../styles/Ballpit.css';
 import '../styles/OpeningRotatingText.css';
@@ -56,14 +57,25 @@ const IntroPage = () => {
         <div className="rotating-text-container">
           <div className="intro-rotating-text">
             <span className="static-text">Creative </span>
-            <OpeningRotatingText
-              texts={[
-                "Action?",
-                "BinKoon!"
-              ]}
-              rotationInterval={1500}
-              onComplete={handleRotatingTextComplete}
-            />
+            <GlareHover
+              width="auto"
+              height="auto"
+              background="transparent"
+              borderRadius="12px"
+              glareColor="#ffffff"
+              glareOpacity={0.3}
+              glareSize={150}
+              transitionDuration={800}
+            >
+              <OpeningRotatingText
+                texts={[
+                  "Action?",
+                  "BinKoon!"
+                ]}
+                rotationInterval={1500}
+                onComplete={handleRotatingTextComplete}
+              />
+            </GlareHover>
           </div>
         </div>
       ) : (
@@ -77,15 +89,26 @@ const IntroPage = () => {
             </p>
           </div>
           
-          <Button 
-            onClick={handleStart}
-            className="start-button"
-            color="#00ff88,#FFD700,#5DE0F0,#FF6B6B"
-            speed="4s"
-            thickness={2}
+          <GlareHover
+            width="auto"
+            height="auto"
+            background="transparent"
+            borderRadius="10px"
+            glareColor="#ffffff"
+            glareOpacity={0.4}
+            glareSize={200}
+            transitionDuration={600}
           >
-            뭐 했는지 보러가기
-          </Button>
+            <Button 
+              onClick={handleStart}
+              className="start-button"
+              color="#00ff88,#FFD700,#5DE0F0,#FF6B6B"
+              speed="4s"
+              thickness={2}
+            >
+              뭐 했는지 보러가기
+            </Button>
+          </GlareHover>
         </div>
       )}
     </div>

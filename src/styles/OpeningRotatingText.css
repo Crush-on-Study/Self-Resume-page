@@ -9,11 +9,15 @@
 .opening-rotating-background {
   background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
   border-radius: 12px;
-  padding: 12px 20px;
+  padding: 8px 16px;
   box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
   transform-origin: left center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
 }
 
 .opening-rotating-background::before {
@@ -40,6 +44,10 @@
   z-index: 1;
   white-space: nowrap;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 /* 애니메이션 효과 */

@@ -4,6 +4,7 @@ import Orb from '../components/external/orb';
 import Button from '../components/common/button';
 import GradientText from '../components/common/GradientText';
 import ShinyText from '../components/external/shinyText';
+import GlareHover from '../components/common/GlareHover';
 import '../styles/home.css';
 import '../styles/skills.css';
 
@@ -71,15 +72,26 @@ const SkillsPage = () => {
             speed={3}
             className="skills-subtitle"
           />
-          <Button 
-            onClick={toggleTipBox}
-            className="tip-box-button"
-            color="#4CAF50,#5DE0F0,#FFD700,#FF6B6B"
-            speed="3s"
-            thickness={2}
+          <GlareHover
+            width="auto"
+            height="auto"
+            background="transparent"
+            borderRadius="10px"
+            glareColor="#ffffff"
+            glareOpacity={0.4}
+            glareSize={200}
+            transitionDuration={600}
           >
-            {showTipBox ? 'Hide Tip Box!' : 'Show Tip Box!'}
-          </Button>
+            <Button 
+              onClick={toggleTipBox}
+              className="tip-box-button"
+              color="#4CAF50,#5DE0F0,#FFD700,#FF6B6B"
+              speed="3s"
+              thickness={2}
+            >
+              {showTipBox ? 'Hide Tip Box!' : 'Show Tip Box!'}
+            </Button>
+          </GlareHover>
         </div>
 
         {/* Network Chart */}
