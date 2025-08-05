@@ -1,4 +1,3 @@
-// Resource : react bits   (i love you!)
 import { useRef, useEffect } from 'react';
 import {
   Clock as e,
@@ -662,9 +661,8 @@ const Ballpit = ({ className = '', followCursor = true, ...props }) => {
 
   return (
     <canvas
-      className={className}
+      className={`${className} w-full h-full`}
       ref={canvasRef}
-      style={{ width: '100%', height: '100%' }}
     />
   );
 };

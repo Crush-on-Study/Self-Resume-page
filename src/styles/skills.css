@@ -1,0 +1,381 @@
+/* SkillsPage 스타일 */
+
+.skills-page {
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+}
+
+.skills-content {
+  position: relative;
+  z-index: 5;
+  padding: 2rem 4rem;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skills-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.skills-subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin: 0;
+}
+
+/* Network Container */
+.network-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Nodes */
+.main-node {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.personal-node {
+  left: 20%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #4A90E2, #357ABD);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
+
+.company-node {
+  right: 20%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  background: linear-gradient(135deg, #7B68EE, #6A5ACD);
+  box-shadow: 0 0 20px rgba(123, 104, 238, 0.5);
+}
+
+.main-node:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(74, 144, 226, 0.8);
+}
+
+.company-node:hover {
+  transform: translate(50%, -50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(123, 104, 238, 0.8);
+}
+
+.node-content {
+  text-align: center;
+  color: white;
+}
+
+.node-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.node-label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Tech Nodes */
+.tech-node {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 8;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.tech-node:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.tech-name {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Personal Tech Node Positions */
+.tech-node-1 { left: 28%; top: 20%; }
+.tech-node-2 { left: 36%; top: 40%; }
+.tech-node-3 { left: 44%; top: 20%; }
+.tech-node-4 { left: 52%; top: 40%; }
+.tech-node-5 { left: 60%; top: 20%; }
+.tech-node-6 { left: 68%; top: 40%; }
+.tech-node-7 { left: 76%; top: 20%; }
+
+/* Company Tech Node Positions */
+.tech-node-company-1 { right: 28%; top: 20%; }
+.tech-node-company-2 { right: 36%; top: 40%; }
+.tech-node-company-3 { right: 44%; top: 20%; }
+.tech-node-company-4 { right: 52%; top: 40%; }
+
+/* Connection Lines */
+.connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.connection-line {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+  animation: dash 20s linear infinite;
+}
+
+.personal-line {
+  stroke: rgba(74, 144, 226, 0.6);
+}
+
+.company-line {
+  stroke: rgba(123, 104, 238, 0.6);
+}
+
+.shared-line {
+  stroke: rgba(255, 255, 255, 0.8);
+  stroke-width: 3;
+  stroke-dasharray: 10, 5;
+  animation: dash 15s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 250px;
+  max-width: 300px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -100%);
+  margin-top: -10px;
+}
+
+.tooltip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tooltip-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.tooltip-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  flex: 1;
+}
+
+.tooltip-close {
+  background: none;
+  border: none;
+  color: #cccccc;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.tooltip-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.tooltip-content h4 {
+  color: #cccccc;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: normal;
+}
+
+.tooltip-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltip-content li {
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
+  border-left: 2px solid #4A90E2;
+  padding-left: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .network-container {
+    height: 50vh;
+  }
+  
+  .main-node {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .tech-node {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .node-icon {
+    font-size: 2rem;
+  }
+  
+  .tech-icon {
+    font-size: 1.2rem;
+  }
+  
+  .tech-name {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-content {
+    padding: 1rem 2rem;
+  }
+  
+  .skills-title {
+    font-size: 2rem;
+  }
+  
+  .network-container {
+    height: 40vh;
+  }
+  
+  .main-node {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .tech-node {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .node-icon {
+    font-size: 1.5rem;
+  }
+  
+  .tech-icon {
+    font-size: 1rem;
+  }
+  
+  .tech-name {
+    font-size: 0.5rem;
+  }
+  
+  .tooltip {
+    min-width: 200px;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-content {
+    padding: 1rem;
+  }
+  
+  .skills-title {
+    font-size: 1.5rem;
+  }
+  
+  .network-container {
+    height: 35vh;
+  }
+  
+  .main-node {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .tech-node {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .node-icon {
+    font-size: 1.2rem;
+  }
+  
+  .tech-icon {
+    font-size: 0.8rem;
+  }
+  
+  .tech-name {
+    font-size: 0.4rem;
+  }
+} 

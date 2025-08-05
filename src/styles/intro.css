@@ -3,7 +3,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background-color: black;
+  background-color: #000000;
 }
 
 .ballpit-container {
@@ -13,6 +13,41 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+}
+
+.rotating-text-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.intro-rotating-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.static-text {
+  color: #ffffff;
+}
+
+.rotating-word-box {
+  background: #8b5cf6;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .intro-content {
@@ -26,7 +61,15 @@
   justify-content: center;
   align-items: center;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.intro-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .intro-text {
@@ -42,7 +85,7 @@
   font-weight: 300;
   margin-bottom: 20px;
   line-height: 1.4;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .sub-title {
@@ -50,7 +93,7 @@
   font-size: 1.0rem;
   font-weight: 300;
   opacity: 0.9;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .start-button {
@@ -61,6 +104,16 @@
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
+  .intro-rotating-text {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .rotating-word-box {
+    padding: 6px 12px;
+  }
+  
   .main-title {
     font-size: 1.8rem;
   }
