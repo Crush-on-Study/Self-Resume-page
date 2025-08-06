@@ -31,7 +31,8 @@ const HomePage = () => {
               <span className="title-line">Developer</span>
             </h3>
             <p className="description">
-              화려함과 사이버펑키한 디자인을 좋아합니다. 극한의 화려함에 희열을 느껴요. 그래도 회사에서는 얌전하게 만듭니다.
+              화려한 고대비테마의 사이버펑크 디자인을 좋아합니다.<br></br>웹페이지 보고 이상하게 보실까봐 말씀드리자면 <br></br>
+              그래도 회사에서는 얌전하게 만듭니다.
             </p>
             <Button 
               className="download-cv-btn"
