@@ -65,7 +65,7 @@ const ExperiencePage = () => {
       year: 2023,
       month: 7,
       type: 'work',
-      title: 'Korea Electronic Tech Ins',
+      title: 'Freelance',
       subtitle: 'Data analysis & Front-End',
       description: '중소 제조업 타겟 탄소전과정 (LCA) 데이터 분석 보조 및 프론트엔드 개발 업무를 수행했습니다. Python을 활용한 데이터 처리 및 Vue3 기반 대시보드 개발을 담당했습니다.',
       icon: '🔬',
