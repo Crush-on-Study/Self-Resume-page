@@ -42,6 +42,9 @@ const Popup = ({ isOpen, onClose, onDontShowAgain }) => {
           <p>
             <strong>Windows 환경</strong>에서 보실 때 색상이 흐릿하게 보일 수 있습니다.
           </p>
+          <p>
+            <strong>Web</strong>에 최적화되어있고 모바일은 아직 다소 불편합니다.
+          </p>
           <div className="popup-tips">
             <h4>💡 팁</h4>
             <ul>

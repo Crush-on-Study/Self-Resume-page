@@ -17,6 +17,7 @@ const GooeyNav = ({
   const filterRef = useRef(null);
   const textRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+  const [isMobile, setIsMobile] = useState(false);
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
 
@@ -45,7 +46,10 @@ const GooeyNav = ({
     const bubbleTime = animationTime * 2 + timeVariance;
     element.style.setProperty("--time", `${bubbleTime}ms`);
 
-    for (let i = 0; i < particleCount; i++) {
+    // 모바일에서는 파티클 수를 줄여서 성능 최적화
+    const mobileParticleCount = isMobile ? Math.floor(particleCount / 2) : particleCount;
+
+    for (let i = 0; i < mobileParticleCount; i++) {
       const t = animationTime * 2 + noise(timeVariance * 2);
       const p = createParticle(i, t, d, r);
       element.classList.remove("active");
@@ -102,6 +106,7 @@ const GooeyNav = ({
 
   const handleClick = (e, index) => {
     e.preventDefault(); // 기본 href 동작 방지
+    e.stopPropagation(); // 이벤트 버블링 방지
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
 
@@ -132,6 +137,18 @@ const GooeyNav = ({
     }
   };
 
+  const handleTouchStart = (e, index) => {
+    // 터치 시작 시 시각적 피드백
+    const target = e.currentTarget;
+    target.style.transform = 'scale(0.95)';
+  };
+
+  const handleTouchEnd = (e, index) => {
+    // 터치 종료 시 원래 크기로 복원
+    const target = e.currentTarget;
+    target.style.transform = 'scale(1)';
+  };
+
   const handleKeyDown = (e, index) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -141,6 +158,18 @@ const GooeyNav = ({
       }
     }
   };
+
+  // 모바일 감지
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
@@ -167,7 +196,7 @@ const GooeyNav = ({
 
     resizeObserver.observe(containerRef.current);
     return () => resizeObserver.disconnect();
-  }, [activeIndex]);
+  }, [activeIndex, isMobile]);
 
   return (
     <div className="gooey-nav-container" ref={containerRef}>
@@ -186,12 +215,18 @@ const GooeyNav = ({
                     item.onClick();
                   }
                 }}
+                onTouchStart={(e) => handleTouchStart(e, index)}
+                onTouchEnd={(e) => handleTouchEnd(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
+                role="button"
+                tabIndex={0}
+                aria-pressed={activeIndex === index}
+                aria-label={item.label}
               >
                 <ShinyText 
                   text={item.label} 
                   disabled={activeIndex !== index}
-                  speed={2}
+                  speed={isMobile ? 1.5 : 2}
                   className="nav-text"
                 />
               </a>
