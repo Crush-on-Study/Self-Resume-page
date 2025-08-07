@@ -3,8 +3,8 @@ import Header from '../components/common/Header';
 import Orb from '../components/external/orb';
 import GradientText from '../components/common/GradientText';
 import ShinyText from '../components/external/shinyText';
-import '../styles/home.css';
-import '../styles/experience.css';
+import '../styles/pages/home.css';
+import '../styles/pages/experience.css';
 
 const ExperiencePage = () => {
   const workExperience = [

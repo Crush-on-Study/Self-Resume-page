@@ -1,4 +1,4 @@
-import "../../styles/button.css";
+import "../../styles/components/button.css";
 
 const Button = ({
   as: Component = "button",

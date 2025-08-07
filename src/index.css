@@ -1,45 +1,25 @@
-/* 글로벌 스타일 - 여백 제거 및 전체 화면 배경 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
+/* Global Styles */
+@import './styles/global/index.css';
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
+/* Component Styles */
+@import './styles/components/ProjectCard.css';
+@import './styles/components/ProjectTab.css';
+@import './styles/components/Header.css';
+@import './styles/components/Button.css';
+@import './styles/components/GradientText.css';
+@import './styles/components/GooeyNav.css';
 
-/* Webkit browsers (Chrome, Safari, etc.) */
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-  display: none;
-}
+/* Page Styles */
+@import './styles/pages/home.css';
+@import './styles/pages/projects.css';
+@import './styles/pages/skills.css';
+@import './styles/pages/experience.css';
+@import './styles/pages/intro.css';
 
-/* 모든 요소의 스크롤바 숨기기 */
-* {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-*::-webkit-scrollbar {
-  display: none;
-}
-
-#root {
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-}
-
-.App {
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-}
+/* External Component Styles */
+@import './styles/external/Orb.css';
+@import './styles/external/Ballpit.css';
+@import './styles/external/board.css';
+@import './styles/external/OpeningRotatingText.css';
+@import './styles/external/RotatingText.css';
+@import './styles/external/ShinyText.css';

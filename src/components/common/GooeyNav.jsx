@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import ShinyText from "../external/shinyText";
-import "../../styles/GooeyNav.css";
+import "../../styles/components/GooeyNav.css";
 
 const GooeyNav = ({
   items,

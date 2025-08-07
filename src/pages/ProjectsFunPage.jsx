@@ -4,8 +4,10 @@ import Orb from '../components/external/orb';
 import GradientText from '../components/common/GradientText';
 import ShinyText from '../components/external/shinyText';
 import Button from '../components/common/button';
-import '../styles/home.css';
-import '../styles/projects.css';
+import ProjectTabNavigation from '../components/ui/ProjectTabNavigation';
+import ProjectTabContent from '../components/ui/ProjectTabContent';
+import '../styles/pages/home.css';
+import '../styles/pages/projects.css';
 
 const ProjectsFunPage = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -187,135 +189,7 @@ const ProjectsFunPage = () => {
     return images[index];
   };
 
-  const renderTabContent = () => {
-    if (!selectedProject) return null;
 
-    switch (activeTab) {
-      case 'overview':
-        return (
-          <div className="tab-content">
-            <div className="overview-grid">
-              <div className="overview-card">
-                <h4>문제 상황</h4>
-                <p>{selectedProject.overview.problem}</p>
-              </div>
-              <div className="overview-card">
-                <h4>해결 방안</h4>
-                <p>{selectedProject.overview.solution}</p>
-              </div>
-              <div className="overview-card">
-                <h4>성과</h4>
-                <p>{selectedProject.overview.impact}</p>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'architecture':
-        return (
-          <div className="tab-content">
-            <div className="architecture-grid">
-              <div className="arch-card">
-                <h4>Frontend</h4>
-                <p>{selectedProject.architecture.frontend}</p>
-              </div>
-              <div className="arch-card">
-                <h4>Backend</h4>
-                <p>{selectedProject.architecture.backend}</p>
-              </div>
-              {selectedProject.architecture.database && (
-                <div className="arch-card">
-                  <h4>Database</h4>
-                  <p>{selectedProject.architecture.database}</p>
-                </div>
-              )}
-              {selectedProject.architecture.maps && (
-                <div className="arch-card">
-                  <h4>Maps & APIs</h4>
-                  <p>{selectedProject.architecture.maps}</p>
-                </div>
-              )}
-              {selectedProject.architecture.ml && (
-                <div className="arch-card">
-                  <h4>Machine Learning</h4>
-                  <p>{selectedProject.architecture.ml}</p>
-                </div>
-              )}
-              <div className="arch-card">
-                <h4>Deployment</h4>
-                <p>{selectedProject.architecture.deployment}</p>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'features':
-        return (
-          <div className="tab-content">
-            <div className="features-grid">
-              {selectedProject.features.map((feature, idx) => (
-                <div key={idx} className="feature-item">
-                  <span className="feature-icon">✓</span>
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-
-      case 'process':
-        return (
-          <div className="tab-content">
-            <div className="process-timeline">
-              {selectedProject.process.map((step, idx) => (
-                <div key={idx} className="process-step">
-                  <div className="step-number">{step.step}</div>
-                  <div className="step-content">
-                    <h4>{step.title}</h4>
-                    <p>{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-
-      case 'screenshots':
-        return (
-          <div className="tab-content">
-            <div className="screenshots-grid">
-              {selectedProject.screenshots.map((screenshot, idx) => (
-                <div key={idx} className="screenshot-card">
-                  <div className="screenshot-placeholder">
-                    📱
-                    <p>스크린샷 준비 중</p>
-                  </div>
-                  <h4>{screenshot.title}</h4>
-                  <p>{screenshot.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-
-      case 'lessons':
-        return (
-          <div className="tab-content">
-            <div className="lessons-grid">
-              {selectedProject.lessons.map((lesson, idx) => (
-                <div key={idx} className="lesson-item">
-                  <span className="lesson-icon">💡</span>
-                  <p>{lesson}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-
-      default:
-        return null;
-    }
-  };
 
   return (
     <div className="projects-page">
@@ -398,47 +272,16 @@ const ProjectsFunPage = () => {
               </div>
 
               {/* Tab Navigation */}
-              <div className="tab-navigation">
-                <button 
-                  className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('overview')}
-                >
-                  개요
-                </button>
-                <button 
-                  className={`tab-button ${activeTab === 'architecture' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('architecture')}
-                >
-                  아키텍처
-                </button>
-                <button 
-                  className={`tab-button ${activeTab === 'features' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('features')}
-                >
-                  주요 기능
-                </button>
-                <button 
-                  className={`tab-button ${activeTab === 'process' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('process')}
-                >
-                  개발 과정
-                </button>
-                <button 
-                  className={`tab-button ${activeTab === 'screenshots' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('screenshots')}
-                >
-                  스크린샷
-                </button>
-                <button 
-                  className={`tab-button ${activeTab === 'lessons' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('lessons')}
-                >
-                  배운 점
-                </button>
-              </div>
+              <ProjectTabNavigation 
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
 
               {/* Tab Content */}
-              {renderTabContent()}
+              <ProjectTabContent 
+                activeTab={activeTab}
+                selectedProject={selectedProject}
+              />
 
               {selectedProject.githubUrl && (
                 <div className="detail-github">

@@ -95,21 +95,9 @@
 }
 
 .download-cv-btn {
-  background: #333;
-  color: #ffffff;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  /* Button 컴포넌트의 애니메이션 효과를 방해하지 않도록 기본 스타일만 유지 */
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.download-cv-btn:hover {
-  background: #4CAF50;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
 }
 
 /* Right Content */

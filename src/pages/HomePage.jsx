@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/common/Header';
 import Orb from '../components/external/orb';
 import Button from '../components/common/button';
-import '../styles/home.css';
+import '../styles/pages/home.css';
 import GooeyNav from '../components/common/GooeyNav';
 
 const HomePage = () => {

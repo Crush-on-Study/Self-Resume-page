@@ -1,0 +1,165 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+/* Remove list styles */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Remove text decoration */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove button styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Remove input styles */
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Remove table styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remove image border */
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove fieldset styles */
+fieldset {
+  min-width: 0;
+  border: 0;
+}
+
+/* Remove legend styles */
+legend {
+  padding: 0;
+}
+
+/* Remove progress styles */
+progress {
+  vertical-align: baseline;
+}
+
+/* Remove textarea resize */
+textarea {
+  resize: vertical;
+}
+
+/* Remove details styles */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+/* Remove template styles */
+template {
+  display: none;
+}
+
+/* Remove hidden styles */
+[hidden] {
+  display: none !important;
+}
+
+/* Remove focus outline */
+:focus {
+  outline: none;
+}
+
+/* Remove selection styles */
+::selection {
+  background-color: var(--primary-cyan);
+  color: var(--text-primary);
+}
+
+/* Remove scrollbar styles */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Remove webkit autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--bg-primary) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* Remove webkit tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove webkit touch callout */
+* {
+  -webkit-touch-callout: none;
+}
+
+/* Remove webkit user select */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for specific elements */
+p, h1, h2, h3, h4, h5, h6, span, div {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+} 

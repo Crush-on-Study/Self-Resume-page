@@ -1,4 +1,4 @@
-import "../../styles/GradientText.css";
+import "../../styles/components/GradientText.css";
 
 export default function GradientText({
   children,

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import GooeyNav from './GooeyNav';
 import { NAV_ITEMS } from '../../router/routes';
-import '../../styles/header.css';
+import '../../styles/components/header.css';
 
 const Header = ({ activeIndex = 0 }) => {
   const navigate = useNavigate();
