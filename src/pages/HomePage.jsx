@@ -1,11 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/common/Header';
 import Orb from '../components/external/orb';
 import Button from '../components/common/button';
+import Popup from '../components/common/Popup';
 import '../styles/pages/home.css';
 import GooeyNav from '../components/common/GooeyNav';
 
 const HomePage = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    // 팝업이 이미 닫혔는지 확인
+    const popupDismissed = localStorage.getItem('popupDismissed');
+    const lastDismissed = localStorage.getItem('popupLastDismissed');
+    
+    if (!popupDismissed) {
+      // 1일간 안보기 체크
+      if (lastDismissed) {
+        const lastDismissedDate = new Date(lastDismissed);
+        const now = new Date();
+        const diffTime = now - lastDismissedDate;
+        const diffDays = diffTime / (1000 * 60 * 60 * 24);
+        
+        if (diffDays >= 1) {
+          // 1일이 지났으면 팝업 표시
+          setShowPopup(true);
+        }
+      } else {
+        // 처음 방문하는 경우 팝업 표시
+        setShowPopup(true);
+      }
+    }
+  }, []);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
+  const handleDontShowAgain = () => {
+    const now = new Date();
+    localStorage.setItem('popupLastDismissed', now.toISOString());
+    setShowPopup(false);
+  };
 
   return (
     <div className="home-page">
@@ -50,6 +86,13 @@ const HomePage = () => {
           
         </div>
       </main>
+
+      {/* Popup */}
+      <Popup 
+        isOpen={showPopup}
+        onClose={handleClosePopup}
+        onDontShowAgain={handleDontShowAgain}
+      />
 
     </div>
   );
