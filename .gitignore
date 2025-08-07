@@ -16,6 +16,12 @@ dist-ssr
 # Firebase
 firebase.json
 .firebase/
+.firebaserc
+
+# Build outputs
+dist/
+dist-ssr/
+build/
 
 # Editor directories and files
 .vscode/*

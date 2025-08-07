@@ -4,6 +4,14 @@
   color: #ffffff;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Webkit browsers (Chrome, Safari, etc.) */
+.experience-page::-webkit-scrollbar {
+  display: none;
 }
 
 .experience-content {
