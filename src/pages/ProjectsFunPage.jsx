@@ -37,16 +37,15 @@ const ProjectsFunPage = () => {
       },
       features: [
         "인터랙티브 애니메이션 시스템",
-        "반응형 디자인",
+        "모바일 타겟 반응형 디자인",
         "다크 테마",
-        "SEO 최적화",
-        "성능 최적화"
+        "SEO 최적화"
       ],
       process: [
-        {step: 1, title: "기획 및 디자인", description: "Figma를 활용한 UI/UX 디자인 및 사용자 플로우 설계"},
+        {step: 1, title: "기획 및 디자인", description: "Figma를 활용한 UI/UX 디자인 및 프로젝트 구조 설계 + 디자인 오픈소스 서칭"},
         {step: 2, title: "프론트엔드 개발", description: "React와 Framer Motion을 활용한 인터랙티브 컴포넌트 개발"},
         {step: 3, title: "애니메이션 구현", description: "부드러운 전환 효과와 마이크로 인터랙션 구현"},
-        {step: 4, title: "최적화", description: "성능 최적화 및 SEO 개선"},
+        {step: 4, title: "최적화", description: "재사용 컴포넌트 리팩토링 및 SEO 개선"},
         {step: 5, title: "배포", description: "Firebase Hosting을 통한 배포 및 도메인 설정"}
       ],
       screenshots: [
@@ -68,7 +67,7 @@ const ProjectsFunPage = () => {
       description: "React로 만든 회사 식권 포인트 p2p 마켓 사이트",
       tech: ["React", "Zustand", "Figma", "Firebase", "Node.js"],
       role: "프론트엔드 개발 및 백엔드 API 개발",
-      duration: "2023.06 - 2023.12",
+      duration: "2025.09.01 - 2025.12.01",
       overview: {
         problem: "회사 식권 포인트를 안전하게 거래할 수 있는 플랫폼이 필요했습니다.",
         solution: "P2P 마켓플레이스에 실시간 채팅과 안전한 거래 시스템을 구현했습니다.",
@@ -79,7 +78,7 @@ const ProjectsFunPage = () => {
         backend: "Node.js + Express + Socket.io",
         database: "Firebase Firestore",
         authentication: "Firebase Auth + JWT",
-        deployment: "Firebase Hosting + Heroku"
+        deployment: "Firebase Hosting"
       },
       features: [
         "실시간 채팅 시스템",
@@ -94,7 +93,7 @@ const ProjectsFunPage = () => {
         {step: 3, title: "프론트엔드 개발", description: "React와 Zustand를 활용한 상태 관리 및 UI 구현"},
         {step: 4, title: "백엔드 개발", description: "Node.js와 Socket.io를 활용한 실시간 통신 구현"},
         {step: 5, title: "보안 구현", description: "JWT 인증과 에스크로 시스템 구현"},
-        {step: 6, title: "테스트 및 배포", description: "종합 테스트 후 Firebase와 Heroku에 배포"}
+        {step: 6, title: "테스트 및 배포", description: "종합 테스트 후 Firebase로 배포"}
       ],
       screenshots: [
         {title: "메인 마켓", description: "거래 목록 화면", imageUrl: "/screenshots/black-market/main.png"},
@@ -115,17 +114,17 @@ const ProjectsFunPage = () => {
       description: "직장인들은 1초라도 더 쉬는 시간이 필요하다! 서울 중구 기준 식사장소 이동 및 식사 예상 소요 시간 예측 앱",
       tech: ["Vue3", "Figma", "Firebase"],
       role: "프론트엔드 개발 및 UX 디자인",
-      duration: "2023.03 - 2023.08",
+      duration: "2025.03.06 - 2025.03.20",
       overview: {
-        problem: "바쁜 직장인들이 점심시간을 효율적으로 활용할 수 있는 솔루션이 필요했습니다.",
-        solution: "위치 기반 식당 추천과 시간 예측 기능을 제공하는 앱을 개발했습니다.",
+        problem: "저희 회사 점심시간을 효율적으로 활용하여 최대한 많은 휴식시간을 갖고 싶을때 도움이 되고자 했습니다.",
+        solution: "위치 기반 식당 추천과 다 먹고 난 뒤 남은 시간 예측 기능을 제공하는 앱을 개발했습니다.",
         impact: "사용자들이 점심시간을 더 효율적으로 활용할 수 있도록 도움을 제공했습니다."
       },
       architecture: {
-        frontend: "Vue3 + Composition API + Vue Router",
+        frontend: "Vue3 + Vue Router",
         backend: "Firebase Functions + Firestore",
-        maps: "Google Maps API + Places API",
-        ml: "TensorFlow.js (시간 예측 모델)",
+        maps: "Naver Maps API",
+        db: "Firestore + Redis Cache",
         deployment: "Firebase Hosting"
       },
       features: [
@@ -140,7 +139,7 @@ const ProjectsFunPage = () => {
         {step: 2, title: "UX 디자인", description: "사용자 여정 맵과 와이어프레임 설계"},
         {step: 3, title: "프론트엔드 개발", description: "Vue3와 Composition API를 활용한 SPA 개발"},
         {step: 4, title: "지도 API 연동", description: "Google Maps API를 활용한 위치 기반 서비스 구현"},
-        {step: 5, title: "ML 모델 개발", description: "TensorFlow.js를 활용한 시간 예측 모델 구현"},
+        {step: 5, title: "점심 약속 일정 등록", description: "서로 시간 비는날이 언제인지 공유하기위한 캘린더 기능 추가"},
         {step: 6, title: "테스트 및 출시", description: "베타 테스트 후 정식 출시"}
       ],
       screenshots: [
@@ -150,9 +149,9 @@ const ProjectsFunPage = () => {
       ],
       lessons: [
         "Vue3 Composition API를 활용한 모던 개발 방법",
-        "Google Maps API와 Places API 활용법",
-        "머신러닝 모델을 프론트엔드에 통합하는 방법",
-        "사용자 중심의 UX 디자인 프로세스"
+        "Naver Maps API 활용법",
+        "사용자 중심의 UX 디자인 프로세스",
+        "Firebase 기능 심화 이해"
       ],
       githubUrl: "https://github.com/Crush-on-Study/Lunch-Insects"
     }
