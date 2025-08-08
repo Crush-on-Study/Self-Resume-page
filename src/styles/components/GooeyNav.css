@@ -81,9 +81,13 @@
     z-index: -1;
   }
   
-    .gooey-nav-container nav ul li.active {
-    color: #b0dedc;
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+  .gooey-nav-container nav ul li.active {
+    color: #FFD700 !important; /* Windows 환경에서 더 선명한 노란색 */
+    text-shadow: 
+      0 0 8px rgba(255, 215, 0, 0.8),
+      0 0 16px rgba(255, 215, 0, 0.4),
+      0 0 24px rgba(255, 215, 0, 0.2); /* 더 강한 글로우 효과 */
+    font-weight: 600; /* Windows에서 더 굵게 */
   }
 
   .gooey-nav-container nav ul li.active::after {
@@ -255,55 +259,30 @@
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
-  .gooey-nav-container nav ul {
-    gap: 1.2em;
-    padding: 0 0.5em;
-    justify-content: space-around;
+  .gooey-nav-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
   }
-  
-  .gooey-nav-container nav ul li a {
-    padding: 0.8em 1.2em;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    transition: all 0.2s ease;
-  }
-  
-  .gooey-nav-container nav ul li a:active {
-    transform: scale(0.95);
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .gooey-nav-container .nav-text {
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  
-  /* 모바일에서 파티클 효과 최적화 */
-  .particle,
-  .point {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .particle {
-    top: calc(50% - 6px);
-    left: calc(50% - 6px);
-  }
-}
 
-@media (max-width: 480px) {
+  .gooey-nav-container nav {
+    width: 100%;
+    position: relative;
+  }
+
   .gooey-nav-container nav ul {
     gap: 0.8em;
-    padding: 0 0.3em;
-    flex-wrap: nowrap;
+    padding: 0 0.5em;
+    justify-content: flex-start;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    width: 100%;
+    scroll-behavior: smooth;
   }
-  
+
   .gooey-nav-container nav ul::-webkit-scrollbar {
     display: none;
   }
@@ -311,19 +290,47 @@
   .gooey-nav-container nav ul li {
     flex-shrink: 0;
     min-width: fit-content;
+    position: relative;
   }
   
   .gooey-nav-container nav ul li a {
-    padding: 0.9em 1.3em;
-    min-height: 50px;
+    padding: 0.6em 1em;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: all 0.2s ease;
     white-space: nowrap;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .gooey-nav-container nav ul li a:active {
+    transform: scale(0.95);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .gooey-nav-container nav ul li.active a {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
   }
   
   .gooey-nav-container .nav-text {
     font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .gooey-nav-container nav ul li.active {
+    color: #FFD700 !important;
+    text-shadow: 
+      0 0 6px rgba(255, 215, 0, 0.9),
+      0 0 12px rgba(255, 215, 0, 0.5);
+    font-weight: 600;
   }
   
-  /* 작은 화면에서 더 작은 파티클 */
+  /* 모바일에서 파티클 효과 최적화 */
   .particle,
   .point {
     width: 10px;
@@ -336,19 +343,49 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 480px) {
   .gooey-nav-container nav ul {
     gap: 0.6em;
-    padding: 0 0.2em;
+    padding: 0 0.3em;
+    justify-content: flex-start;
   }
   
   .gooey-nav-container nav ul li a {
-    padding: 0.8em 1.1em;
-    min-height: 46px;
+    padding: 0.5em 0.8em;
+    min-height: 40px;
+    font-size: 0.8rem;
   }
   
   .gooey-nav-container .nav-text {
     font-size: 0.8rem;
+  }
+  
+  /* 작은 화면에서 더 작은 파티클 */
+  .particle,
+  .point {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .particle {
+    top: calc(50% - 4px);
+    left: calc(50% - 4px);
+  }
+}
+
+@media (max-width: 320px) {
+  .gooey-nav-container nav ul {
+    gap: 0.4em;
+    padding: 0 0.2em;
+  }
+  
+  .gooey-nav-container nav ul li a {
+    padding: 0.4em 0.6em;
+    min-height: 36px;
+  }
+  
+  .gooey-nav-container .nav-text {
+    font-size: 0.75rem;
   }
 }
 

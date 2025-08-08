@@ -137,6 +137,13 @@ const GooeyNav = ({
     }
   };
 
+  const handleMouseEnter = (index) => {
+    // 호버 시 프리로딩 실행
+    if (items[index] && items[index].onMouseEnter) {
+      items[index].onMouseEnter();
+    }
+  };
+
   const handleTouchStart = (e, index) => {
     // 터치 시작 시 시각적 피드백
     const target = e.currentTarget;
@@ -178,6 +185,22 @@ const GooeyNav = ({
       updateEffectPosition(activeLi);
       textRef.current?.classList.add("active");
       
+      // 모바일에서 active 요소가 보이도록 스크롤
+      if (isMobile && activeLi) {
+        const container = navRef.current;
+        const activeRect = activeLi.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        
+        // active 요소가 화면 밖에 있으면 스크롤
+        if (activeRect.left < containerRect.left || activeRect.right > containerRect.right) {
+          activeLi.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }
+      }
+      
       // 초기 로드 시에도 이펙트 표시
       setTimeout(() => {
         if (filterRef.current) {
@@ -215,6 +238,7 @@ const GooeyNav = ({
                     item.onClick();
                   }
                 }}
+                onMouseEnter={() => handleMouseEnter(index)}
                 onTouchStart={(e) => handleTouchStart(e, index)}
                 onTouchEnd={(e) => handleTouchEnd(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}

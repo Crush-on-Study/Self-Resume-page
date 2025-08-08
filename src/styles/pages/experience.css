@@ -75,6 +75,23 @@
   align-items: center;
   gap: 2rem;
   min-height: 200px;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.race-track::-webkit-scrollbar {
+  display: none;
+}
+
+.race-track.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }
 
 /* Start & Finish Lines */
@@ -89,6 +106,7 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
   min-width: 120px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .start-flag, .finish-flag {
@@ -109,27 +127,26 @@
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid var(--milestone-color);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
+  border: 2px solid var(--milestone-color, rgba(255, 255, 255, 0.2));
   min-width: 150px;
+  text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  flex-shrink: 0;
   position: relative;
-  backdrop-filter: blur(10px);
-  white-space: normal;
 }
 
 .milestone:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-color: var(--milestone-color);
-  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--milestone-color, #ffffff);
 }
 
 .milestone.major {
   border-width: 3px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .milestone.minor {
@@ -138,8 +155,9 @@
 }
 
 .milestone.current {
-  animation: glow 2s ease-in-out infinite alternate;
-  border-width: 4px;
+  border-color: #FFD700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  animation: glow 2s infinite;
 }
 
 .milestone-icon {
@@ -186,41 +204,71 @@
   animation: pulse 1s infinite;
 }
 
+/* Drag Instructions */
+.drag-instructions {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cccccc;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.drag-instructions:hover {
+  opacity: 1;
+}
+
+.drag-instructions span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 /* Legend */
 .race-legend {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .legend-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #cccccc;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .legend-icon {
   font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 .legend-icon.major {
-  color: #4CAF50;
+  background: linear-gradient(45deg, #4CAF50, #5DE0F0);
 }
 
 .legend-icon.minor {
-  color: #FFD700;
+  background: linear-gradient(45deg, #FFD700, #FF6B6B);
 }
 
 .legend-icon.current {
-  color: #FFD700;
-  animation: pulse 1s infinite;
+  background: linear-gradient(45deg, #FF6B6B, #4CAF50);
+  animation: pulse 2s infinite;
 }
 
 /* Modal Content Styles */
@@ -329,54 +377,55 @@
   .experience-content {
     padding: 1rem 2rem;
   }
-  
+
   .experience-title {
     font-size: 2rem;
   }
-  
+
   .race-track {
-    padding: 1.5rem 0.5rem;
+    padding: 2rem 1rem;
     gap: 1rem;
     min-height: 150px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    cursor: grab;
   }
-  
+
   .milestone {
     min-width: 120px;
     padding: 0.8rem;
-    scroll-snap-align: center;
-    flex-shrink: 0;
   }
-  
+
   .milestone-icon {
     font-size: 1.5rem;
   }
-  
+
   .milestone-title {
     font-size: 0.8rem;
   }
-  
+
   .milestone-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
-  
+
   .race-legend {
-    flex-direction: column;
     gap: 1rem;
   }
-  
+
   .start-line, .finish-line {
     min-width: 100px;
     padding: 0.8rem;
   }
-  
+
   .start-flag, .finish-flag {
     font-size: 1.5rem;
   }
-  
+
   .start-line span, .finish-line span {
     font-size: 0.8rem;
+  }
+
+  .drag-instructions {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 

@@ -13,9 +13,33 @@ const Header = ({ activeIndex = 0 }) => {
     location.pathname === item.route
   );
   
+  // 프리로딩 함수들
+  const preloadPage = (route) => {
+    switch(route) {
+      case '/home':
+        import('../../pages/HomePage');
+        break;
+      case '/skills':
+        import('../../pages/SkillsPage');
+        break;
+      case '/experience':
+        import('../../pages/ExperiencePage');
+        break;
+      case '/projects-fun':
+        import('../../pages/ProjectsFunPage');
+        break;
+      case '/projects-company':
+        import('../../pages/ProjectsCompanyPage');
+        break;
+      default:
+        break;
+    }
+  };
+
   const navItems = NAV_ITEMS.map(item => ({
     ...item,
-    onClick: () => navigate(item.route)
+    onClick: () => navigate(item.route),
+    onMouseEnter: () => preloadPage(item.route) // 호버 시 프리로딩
   }));
 
   const handleSocialClick = (url) => {
