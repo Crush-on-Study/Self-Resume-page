@@ -22,15 +22,12 @@ const Header = ({ activeIndex = 0 }) => {
       case '/skills':
         import('../../pages/SkillsPage');
         break;
-      case '/experience':
-        import('../../pages/ExperiencePage');
-        break;
-      case '/projects-fun':
-        import('../../pages/ProjectsFunPage');
-        break;
-      case '/projects-company':
-        import('../../pages/ProjectsCompanyPage');
-        break;
+              case '/experience':
+          import('../../pages/ExperiencePage');
+          break;
+        case '/projects':
+          import('../../pages/ProjectsPage');
+          break;
       default:
         break;
     }

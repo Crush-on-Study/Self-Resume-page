@@ -4,7 +4,6 @@ import Orb from '../components/external/orb';
 import Button from '../components/common/button';
 import Popup from '../components/common/Popup';
 import '../styles/pages/home.css';
-import GooeyNav from '../components/common/GooeyNav';
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -51,12 +50,11 @@ const HomePage = () => {
       </div>
       
       {/* Header */}
-      {/* <GooeyNav items={NAV_ITEMS} /> */}
       <Header activeIndex={0} />
 
       {/* Main Content */}
       <main className="main-content">
-        {/* Left Section - Text Content */}
+        {/* Left Section - AboutMe Content */}
         <div className="content-left">
           <div className="text-content">
             <h1 className="about-tag">&lt;aboutMe /&gt;</h1>
@@ -80,11 +78,6 @@ const HomePage = () => {
             </Button>
           </div>
         </div>
-
-        {/* Right Section - Profile Picture & Social Icons */}
-        <div className="content-right">
-          
-        </div>
       </main>
 
       {/* Popup */}
@@ -93,7 +86,6 @@ const HomePage = () => {
         onClose={handleClosePopup}
         onDontShowAgain={handleDontShowAgain}
       />
-
     </div>
   );
 };

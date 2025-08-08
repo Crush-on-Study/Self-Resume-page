@@ -55,19 +55,23 @@ export const preloadStrategies = {
   home: () => {
     if (shouldPreload()) {
       setTimeout(() => import('../pages/SkillsPage'), 2000);
-      setTimeout(() => import('../pages/ExperiencePage'), 4000);
+      setTimeout(() => import('../pages/ProjectsPage'), 4000);
     }
   },
   skills: () => {
     if (shouldPreload()) {
-      setTimeout(() => import('../pages/ProjectsFunPage'), 2000);
-      setTimeout(() => import('../pages/ProjectsCompanyPage'), 4000);
+      setTimeout(() => import('../pages/ExperiencePage'), 2000);
+      setTimeout(() => import('../pages/ProjectsPage'), 4000);
     }
   },
   experience: () => {
     if (shouldPreload()) {
-      setTimeout(() => import('../pages/ProjectsFunPage'), 2000);
-      setTimeout(() => import('../pages/ProjectsCompanyPage'), 4000);
+      setTimeout(() => import('../pages/ProjectsPage'), 2000);
+    }
+  },
+  projects: () => {
+    if (shouldPreload()) {
+      // Projects 페이지는 이미 로드되었으므로 추가 프리로딩 불필요
     }
   }
 };

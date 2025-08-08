@@ -183,22 +183,6 @@ const ExperiencePage = () => {
           <span>💡 드래그하여 타임라인을 좌우로 스크롤하세요</span>
         </div>
 
-        {/* Legend */}
-        <div className="race-legend">
-          <div className="legend-item">
-            <div className="legend-icon major">🎯</div>
-            <span>Major Milestone</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-icon minor">📜</div>
-            <span>Certification</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-icon current">⚡</div>
-            <span>Current Position</span>
-          </div>
-        </div>
-
         {/* Milestone Modal */}
         <Modal
           isOpen={!!selectedMilestone}
@@ -224,4 +208,4 @@ const ExperiencePage = () => {
   );
 };
 
-export default ExperiencePage; 
+export default ExperiencePage;

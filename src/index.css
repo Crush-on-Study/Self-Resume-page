@@ -2,12 +2,12 @@
 @import './styles/global/index.css';
 
 /* Component Styles */
-@import './styles/components/ProjectCard.css';
 @import './styles/components/ProjectTab.css';
 @import './styles/components/Header.css';
 @import './styles/components/Button.css';
 @import './styles/components/GradientText.css';
 @import './styles/components/GooeyNav.css';
+@import './styles/components/Tag.css';
 
 /* Page Styles */
 @import './styles/pages/home.css';
@@ -19,7 +19,5 @@
 /* External Component Styles */
 @import './styles/external/Orb.css';
 @import './styles/external/Ballpit.css';
-@import './styles/external/board.css';
 @import './styles/external/OpeningRotatingText.css';
-@import './styles/external/RotatingText.css';
 @import './styles/external/ShinyText.css';
