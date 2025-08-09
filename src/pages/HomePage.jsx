@@ -10,44 +10,32 @@ import '../styles/pages/home.css';
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
 
+  const POPUP_VERSION = 'v2';
+
   useEffect(() => {
-    const popupDismissed = localStorage.getItem('popupDismissed');
-    const lastDismissed = localStorage.getItem('popupLastDismissed');
-    
-    if (!popupDismissed) {
-      if (lastDismissed) {
-        const lastDismissedDate = new Date(lastDismissed);
-        const now = new Date();
-        const diffTime = now - lastDismissedDate;
-        const diffDays = diffTime / (1000 * 60 * 60 * 24);
-        
-        if (diffDays >= 1) {
-          setShowPopup(true);
-        }
-      } else {
-        setShowPopup(true);
-      }
+    const storedVersion = localStorage.getItem('popupVersion');
+    if (storedVersion !== POPUP_VERSION) {
+      setShowPopup(true);
     }
   }, []);
 
   const handleClosePopup = () => {
     setShowPopup(false);
+    localStorage.setItem('popupVersion', POPUP_VERSION);
   };
 
   const handleDontShowAgain = () => {
-    const now = new Date();
-    localStorage.setItem('popupLastDismissed', now.toISOString());
+    localStorage.setItem('popupVersion', POPUP_VERSION);
     setShowPopup(false);
   };
 
   const letter = [
-    '반갑습니다. 디자인과 IT를 좋아하는 강현빈입니다.',
-    '무엇을 좋아하는지 알기 위해 다양한 경험, 다양한 포지션을 경험해왔습니다.',
+    '반갑습니다.',
+    '저는 제가 무엇을 좋아하는지 깨닫기 위해 다양한 경험, 다양한 포지션을 경험해왔습니다.',
     '누구는 처음부터 원하던 전공, 원하던 직무를 찾았지만  저는 그렇지 못했습니다.',
-    '대략 4년간 하고 싶은게 무엇인지 찾고나니 기억에 남는건 프론트엔드 분야였습니다.',
-    '저의 상상을 빈 화면에서 시작하여 채워나가는게 재밌었습니다.',
-    '이 공간은 제가 그동안 경험했던 것들을 담아놓았습니다.',
-    '제 작은 세상에 와주셔서 감사합니다.'
+    '그렇게 대략 4년간 하고 싶은게 무엇인지 찾아다니다보니 제일 재밌었던건 프론트엔드 개발자였습니다.',
+    '저의 상상을 빈 화면에서 시작하여 채워나가는게 재밌습니다.',
+    '이 공간은 제가 그동안 경험했던 것들을 기록해놓았습니다.'
   ];
 
   return (

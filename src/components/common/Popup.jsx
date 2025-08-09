@@ -28,7 +28,7 @@ const Popup = ({ isOpen, onClose, onDontShowAgain }) => {
     <div className="popup-overlay">
       <div className="popup-content">
         <div className="popup-header">
-          <h3>💻 화면 색상 안내</h3>
+          <h3>💻 안내사항</h3>
           <button className="popup-close-btn" onClick={handleClose}>
             ×
           </button>
