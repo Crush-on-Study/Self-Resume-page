@@ -27,17 +27,17 @@ const ExperiencePage = () => {
 
   // 인생의 레이스 데이터 - 시간순으로 정렬
   const lifeRace = [
-    { id: 1, type: 'education', title: 'Start!', subtitle: '중앙대학교 물리학과 졸업', date: '2022-02-14', icon: '🎓', color: '#4CAF50', isMilestone: true },
+    { id: 1, type: 'education', title: 'Start!', subtitle: '중앙대학교 물리학과 졸업', date: '2022-02-14', description: '물리학 단일 전공, 아직 뭘 하고 싶은지 몰랐던 상태', icon: '🎓', color: '#4CAF50', isMilestone: true },
 
-    { id: 2, type: 'work', title: 'ON Semiconductor', subtitle: '반도체 테스트 엔지니어', start: '2021-10-25', end: '2022-06-15', icon: '🧪', color: '#5DE0F0', isMilestone: true },
+    { id: 2, type: 'work', title: 'ON Semiconductor', subtitle: '반도체 테스트 엔지니어', start: '2021-10-25', end: '2022-06-15', description: '우연히 접한 SW, C++로 반도체 안정성 테스트 로직 유지수', icon: '🧪', color: '#5DE0F0', isMilestone: true },
 
-    { id: 3, type: 'work', title: 'LG Display', subtitle: 'ESG Manager', start: '2022-07-05', end: '2022-12-20', icon: '🏢', color: '#5DE0F0', isMilestone: true },
+    { id: 3, type: 'work', title: 'LG Display', subtitle: 'ESG Manager', start: '2022-07-05', end: '2022-12-20', description: 'ESG경영팀 유해물질 테스트', icon: '🏢', color: '#5DE0F0', isMilestone: true },
 
-    { id: 4, type: 'education', title: 'SCSA 20th', subtitle: '삼성SDS 채용연계형 교육생', start: '2023-01-16', end: '2023-07-07', icon: '💻', color: '#4CAF50', isMilestone: true },
+    { id: 4, type: 'education', title: 'SCSA 20th', subtitle: '삼성SDS 채용연계형 교육생', start: '2023-01-16', end: '2023-07-07', description: 'SW로 진로를 전환하고자, 퇴사하고 도전한 교육과정. 전환에 실패했지만 많이 단단해진 시기', icon: '💻', color: '#4CAF50', isMilestone: true },
 
-    { id: 5, type: 'work', title: 'Freelance', subtitle: 'Data analysis & Front-End', start: '2023-07-01', end: '2024-08-31', icon: '🔬', color: '#5DE0F0', isMilestone: true },
+    { id: 5, type: 'work', title: 'Freelance', subtitle: 'Data analysis & Front-End', start: '2023-07-01', end: '2024-08-31', description: '알고지낸 박사님의 추천으로 중소 제조업 고객 대상 ESG 탄소분석 플랫폼 개발 보조 시작', icon: '🔬', color: '#5DE0F0', isMilestone: true },
 
-    { id: 6, type: 'work', title: 'Korea Marine Transport Co', subtitle: 'IT Planner & Front-End', start: '2024-09-01', end: null, icon: '🚢', color: '#5DE0F0', isMilestone: true, isCurrent: true }
+    { id: 6, type: 'work', title: 'Korea Marine Transport Co', subtitle: 'IT Planner & Front-End', start: '2024-09-01', end: null, description: '기획과 프론트엔드 업무 담당', icon: '🚢', color: '#5DE0F0', isMilestone: true, isCurrent: true }
   ];
 
   const handleMilestoneClick = (milestone) => {
