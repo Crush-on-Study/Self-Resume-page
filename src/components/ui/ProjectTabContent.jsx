@@ -50,24 +50,48 @@ const ProjectTabContent = ({ activeTab, selectedProject }) => {
         return (
           <div className="tab-content">
             <div className="architecture-section">
-              <h3>시스템 아키텍처</h3>
+              <h3>기술스택</h3>
               <div className="architecture-grid">
-                <div className="arch-card">
-                  <h4>Frontend</h4>
-                  <p>{selectedProject.architecture?.frontend || "Vue2 + Chart.js"}</p>
-                </div>
-                <div className="arch-card">
-                  <h4>Backend</h4>
-                  <p>{selectedProject.architecture?.backend || "Python Flask"}</p>
-                </div>
-                <div className="arch-card">
-                  <h4>Database</h4>
-                  <p>{selectedProject.architecture?.database || "Oracle DB"}</p>
-                </div>
-                <div className="arch-card">
-                  <h4>Infrastructure</h4>
-                  <p>{selectedProject.architecture?.infrastructure || "Azure VM"}</p>
-                </div>
+                {selectedProject.architecture ? (
+                  Object.entries(selectedProject.architecture).map(([key, value]) => (
+                    <div key={key} className="arch-card">
+                      <h4>{
+                        {
+                          frontend: 'Frontend',
+                          backend: 'Backend',
+                          database: 'Database',
+                          infrastructure: 'Infrastructure',
+                          server: 'Server',
+                          authentication: 'Auth',
+                          design: 'Design',
+                          deployment: 'Deployment',
+                          maps: 'Maps',
+                          db: 'Database'
+                        }[key] || key
+                      }</h4>
+                      <p>{value}</p>
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    <div className="arch-card">
+                      <h4>Frontend</h4>
+                      <p>Vue2 + Chart.js</p>
+                    </div>
+                    <div className="arch-card">
+                      <h4>Backend</h4>
+                      <p>Python Flask</p>
+                    </div>
+                    <div className="arch-card">
+                      <h4>Database</h4>
+                      <p>Oracle DB</p>
+                    </div>
+                    <div className="arch-card">
+                      <h4>Infrastructure</h4>
+                      <p>Azure VM</p>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             

@@ -1,9 +1,10 @@
 import React from 'react';
+import Button from '../common/button';
 
 const ProjectTabNavigation = ({ activeTab, setActiveTab }) => {
   const tabs = [
     { key: 'overview', label: '개요' },
-    { key: 'architecture', label: '아키텍처' },
+    { key: 'architecture', label: '기술스택' },
     { key: 'process', label: '프로세스' },
     { key: 'screenshots', label: '스크린샷' },
     { key: 'lessons', label: '배운 점' }
@@ -12,13 +13,15 @@ const ProjectTabNavigation = ({ activeTab, setActiveTab }) => {
   return (
     <div className="tab-navigation">
       {tabs.map((tab) => (
-        <button 
+        <Button 
           key={tab.key}
           className={`tab-button ${activeTab === tab.key ? 'active' : ''}`}
           onClick={() => setActiveTab(tab.key)}
+          color="#5DE0F0"
+          speed="3s"
         >
           {tab.label}
-        </button>
+        </Button>
       ))}
     </div>
   );

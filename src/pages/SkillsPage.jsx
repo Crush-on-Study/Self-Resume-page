@@ -110,7 +110,7 @@ const SkillsPage = () => {
             colors={["#4CAF50", "#5DE0F0", "#FFD700", "#FF6B6B"]}
             animationSpeed={6}
           >
-            Skills
+            &lt;skills /&gt;
           </GradientText>
           <ShinyText 
             text="개인 프로젝트와 회사 프로젝트에서 사용한 기술들"

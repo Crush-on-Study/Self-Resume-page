@@ -24,25 +24,24 @@ const ProjectsPage = () => {
       title: "포트폴리오 웹사이트",
       description: "지금 여러분이 보고 있는 이 사이트!",
       tech: ["React", "Framer Motion", "Figma", "Firebase"],
-      role: "풀스택 개발 및 디자인",
-      duration: "2024.01 - 2024.12",
+      role: "프론트엔드", 
+      duration: "2025.08.01 - 2025.08.09",
       type: "personal",
+      member: "1인",
       overview: {
         problem: "개발자로서의 경험과 프로젝트를 효과적으로 보여줄 방법이 필요했습니다.",
         solution: "인터랙티브한 애니메이션과 현대적인 디자인을 적용한 포트폴리오 웹사이트를 개발했습니다.",
         impact: "시각적으로 매력적이고 사용자 경험이 뛰어난 포트폴리오를 완성했습니다."
       },
       architecture: {
-        frontend: "React + Vite + CSS3 + Framer Motion",
-        backend: "Firebase Hosting + Firebase Analytics",
-        design: "Figma + Adobe Creative Suite",
-        deployment: "Firebase Hosting + GitHub Actions"
+        frontend: "React + Framer Motion + CSS3 + Three.js",
+        backend: "Firebase Hosting",
+        design: "Figma"
       },
       features: [
         "인터랙티브 애니메이션 시스템",
         "모바일 타겟 반응형 디자인",
-        "다크 테마",
-        "SEO 최적화"
+        "다크 테마"
       ],
       process: [
         {step: 1, title: "기획 및 디자인", description: "Figma를 활용한 UI/UX 디자인 및 프로젝트 구조 설계 + 디자인 오픈소스 서칭"},
@@ -51,11 +50,7 @@ const ProjectsPage = () => {
         {step: 4, title: "최적화", description: "재사용 컴포넌트 리팩토링 및 SEO 개선"},
         {step: 5, title: "배포", description: "Firebase Hosting을 통한 배포 및 도메인 설정"}
       ],
-      screenshots: [
-        {title: "메인 페이지", description: "인터랙티브한 홈 화면", imageUrl: "/screenshots/portfolio-website/main.png"},
-        {title: "프로젝트 섹션", description: "프로젝트 상세 페이지", imageUrl: "/screenshots/portfolio-website/projects.png"},
-        {title: "스킬 섹션", description: "기술 스택 시각화", imageUrl: "/screenshots/portfolio-website/skills.png"}
-      ],
+      screenshots: [],
       lessons: [
         "Framer Motion을 활용한 고급 애니메이션 구현 방법",
         "React 성능 최적화 기법 (React.memo, useMemo, useCallback)",
@@ -69,35 +64,34 @@ const ProjectsPage = () => {
       title: "Black Market",
       description: "React로 만든 회사 식권 포인트 p2p 마켓 사이트",
       tech: ["React", "Zustand", "Figma", "Firebase", "Node.js"],
-      role: "프론트엔드 개발 및 백엔드 API 개발",
+      role: "기획, 디자인, 프론트엔드",
       duration: "2025.09.01 - 2025.12.01",
       type: "personal",
+      member: "2인",
       overview: {
         problem: "회사 식권 포인트를 안전하게 거래할 수 있는 플랫폼이 필요했습니다.",
         solution: "P2P 마켓플레이스에 실시간 채팅과 안전한 거래 시스템을 구현했습니다.",
         impact: "사용자들이 안전하게 포인트를 거래할 수 있는 플랫폼을 제공했습니다."
       },
       architecture: {
-        frontend: "React + Zustand + Socket.io Client",
-        backend: "Node.js + Express + Socket.io",
-        database: "Firebase Firestore",
-        authentication: "Firebase Auth + JWT",
-        deployment: "Firebase Hosting"
+        frontend: "React",
+        backend: "Python (FastAPI)",
+        infrastructure: "AWS EC2"
       },
       features: [
-        "실시간 채팅 시스템",
-        "안전한 거래 시스템 (에스크로)",
-        "사용자 인증 및 프로필 관리",
-        "거래 내역 관리",
-        "평점 및 리뷰 시스템"
+        "소셜로그인 후, 회사 선택하여 회사별 거래소 게시판으로 이동",
+        "ver 2.0에 결제시스템 도입 예정",
+        "판매자 & 구매자 평점 시스템",
+        "거래 관련 퀘스트 및 보상 시스템",
+        "판매 & 구매 글 등록 및 거래 요청 알림  or 팔로우한 판매자 새글 등록 시 구매자에게 알림"
       ],
       process: [
-        {step: 1, title: "요구사항 분석", description: "사용자 인터뷰 및 시장 조사를 통한 기능 정의"},
-        {step: 2, title: "UI/UX 디자인", description: "Figma를 활용한 사용자 친화적 인터페이스 설계"},
-        {step: 3, title: "프론트엔드 개발", description: "React와 Zustand를 활용한 상태 관리 및 UI 구현"},
-        {step: 4, title: "백엔드 개발", description: "Node.js와 Socket.io를 활용한 실시간 통신 구현"},
-        {step: 5, title: "보안 구현", description: "JWT 인증과 에스크로 시스템 구현"},
-        {step: 6, title: "테스트 및 배포", description: "종합 테스트 후 Firebase로 배포"}
+        { step: 1, title: "기획", description: "문제정의 및 사용자 시나리오 설계, 정보구조 산출" },
+        { step: 2, title: "디자인", description: "Figma 기반 플로우/와이어/하이파이 UI 제작" },
+        { step: 3, title: "프론트엔드", description: "React + Zustand 구조 설계 및 핵심 화면/상태 관리 구현" },
+        { step: 4, title: "백엔드", description: "FastAPI 기반 API 스펙 설계 및 엔드포인트 구현" },
+        { step: 5, title: "인증/알림", description: "소셜로그인 연동, 회사 선택 라우팅, 알림 플로우 설계" },
+        { step: 6, title: "배포", description: "AWS EC2 환경 구성 및 무중단 배포 파이프라인 준비" }
       ],
       screenshots: [
         {title: "메인 마켓", description: "거래 목록 화면", imageUrl: "/screenshots/black-market/main.png"},
@@ -117,9 +111,10 @@ const ProjectsPage = () => {
       title: "Lunch Insects",
       description: "직장인들은 1초라도 더 쉬는 시간이 필요하다! 서울 중구 기준 식사장소 이동 및 식사 예상 소요 시간 예측 앱",
       tech: ["Vue3", "Figma", "Firebase"],
-      role: "프론트엔드 개발 및 UX 디자인",
+      role: "프론트엔드",
       duration: "2025.03.06 - 2025.03.20",
       type: "personal",
+      member: "1인",
       overview: {
         problem: "저희 회사 점심시간을 효율적으로 활용하여 최대한 많은 휴식시간을 갖고 싶을때 도움이 되고자 했습니다.",
         solution: "위치 기반 식당 추천과 다 먹고 난 뒤 남은 시간 예측 기능을 제공하는 앱을 개발했습니다.",
@@ -170,9 +165,10 @@ const ProjectsPage = () => {
       description: "정기 컨테이너선사 스케줄 일정 크롤링 + 모니터링 개발",
       tech: ["Vue2", "Python", "Azure", "Figma", "Oracle"],
       detailDescription: "[2시간 ➡️ 27분] 수기로 스케줄 업데이트하던 작업을 선사 홈페이지를 찍고 자동으로 크롤링하고, 실시간으로 모니터링할 수 있는 대시보드를 개발했습니다.",
-      role: "1인 풀스택",
+      role: "기획, 프론트엔드, 크롤링 로직",
       duration: "2025.06.25 - 2025.08.22",
       type: "company",
+      member: "4인",
       challenges: ["CAPTCHA 차단봇 우회", "이미지 파일 형태 처리 방법", "유지보수 최소화를 위한 최적화 고민"],
       solutions: ["사랑해요 오픈소스", "Azure OCR엔진 사용", "크롤링 작업부터 기간계 DB 적재까지의 구조화 리팩토링"],
       githubUrl: "https://github.com/Crush-on-Study/RPA_Crawling",
@@ -251,9 +247,10 @@ const ProjectsPage = () => {
       description: "스케줄 , SCFI 선물지수 , 항만 적체 일수 , GRI 공표 자료 기반 운임 방향 예상",
       tech: ["JavaScript (Vanila)", "Python", "Oracle", "Figma"],
       detailDescription: "선박 스케줄, SCFI 선물지수, 항만 적체 일수, GRI 공표 자료를 종합적으로 분석하여 운임 방향 (급락/하락/상승/급등)을 예측하는데 근거모델로써 활용",
-      role: "기획 & PM 및 크롤링",
+      role: "프론트엔드",
       duration: "2025.07.25 - 2025.11.30",
       type: "company",
+      member: "1인",
       challenges: ["검색 키워드 기반 크롤링", "운임 방향 예측에 대한 근거 제시", "크롤링 데이터 파이프라인 구축"],
       solutions: ["???", "ChatGPT 기반 LLM 연동", "cx_Oracle 기반 쿼리작성"],
       githubUrl: "https://github.com/Crush-on-Study/profit_dashboard"
@@ -264,9 +261,10 @@ const ProjectsPage = () => {
       description: "중소 제조업 대상 환경 부하 및 환경 영향 평가 프로그램 개발",
       tech: ["Vue3", "Python", "Figma"],
       detailDescription: "중소 제조업체들이 제품의 환경 영향을 쉽게 평가할 수 있도록 LCA(Life Cycle Assessment) 대시보드를 개발했습니다. 복잡한 환경 평가 과정을 직관적인 인터페이스로 제공하여 중소기업도 쉽게 활용할 수 있도록 했습니다.",
-      role: "프론트엔드 개발 및 데이터 분석 보조",
+      role: "프론트엔드",
       duration: "2023.07.01 - 2024.08.31",
       type: "company",
+      member: "1인",
       challenges: ["공정 데이터 취합", "사용자 친화적 인터페이스 설계", "다양한 제품 유형 지원"],
       solutions: ["직접 인터뷰", "단계별 가이드 시스템", "템플릿 기반 데이터 입력"],
       githubUrl: "https://github.com/Crush-on-Study"
@@ -339,7 +337,7 @@ const ProjectsPage = () => {
                 colors={["#4CAF50", "#5DE0F0", "#FFD700", "#FF6B6B"]}
                 animationSpeed={6}
               >
-                Projects
+                &lt;projects /&gt;
               </GradientText>
               <ShinyText 
                 text="개인 및 회사 프로젝트 모음"
@@ -402,9 +400,9 @@ const ProjectsPage = () => {
                       ))}
                     </div>
                     <div className="project-type">
-                      <span className={`type-badge ${project.type}`}>
+                      <Tag className={`type-badge ${project.type}`}>
                         {project.type === 'personal' ? 'Personal' : 'Company'}
-                      </span>
+                      </Tag>
                     </div>
                   </div>
                 </div>
@@ -429,9 +427,10 @@ const ProjectsPage = () => {
                 <div className="detail-meta">
                   <span className="detail-role">{selectedProject.role}</span>
                   <span className="detail-duration">{selectedProject.duration}</span>
-                  <span className={`type-badge ${selectedProject.type}`}>
+                  <span className="detail-member">👥 {selectedProject.member}</span>
+                  <Tag className={`type-badge ${selectedProject.type}`}>
                     {selectedProject.type === 'personal' ? 'Personal' : 'Company'}
-                  </span>
+                  </Tag>
                 </div>
               </div>
 
@@ -449,7 +448,7 @@ const ProjectsPage = () => {
 
               {selectedProject.githubUrl && (
                 <div className="detail-github">
-                  <h3>GitHub 저장소</h3>
+                  <h3>관련 링크</h3>
                   <Button
                     as="a"
                     href={selectedProject.githubUrl}

@@ -3,18 +3,18 @@ import Header from '../components/common/Header';
 import Orb from '../components/external/orb';
 import Button from '../components/common/button';
 import Popup from '../components/common/Popup';
+import GradientText from '../components/common/GradientText';
+import LetterLines from '../components/ui/LetterLines';
 import '../styles/pages/home.css';
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // 팝업이 이미 닫혔는지 확인
     const popupDismissed = localStorage.getItem('popupDismissed');
     const lastDismissed = localStorage.getItem('popupLastDismissed');
     
     if (!popupDismissed) {
-      // 1일간 안보기 체크
       if (lastDismissed) {
         const lastDismissedDate = new Date(lastDismissed);
         const now = new Date();
@@ -22,11 +22,9 @@ const HomePage = () => {
         const diffDays = diffTime / (1000 * 60 * 60 * 24);
         
         if (diffDays >= 1) {
-          // 1일이 지났으면 팝업 표시
           setShowPopup(true);
         }
       } else {
-        // 처음 방문하는 경우 팝업 표시
         setShowPopup(true);
       }
     }
@@ -41,6 +39,16 @@ const HomePage = () => {
     localStorage.setItem('popupLastDismissed', now.toISOString());
     setShowPopup(false);
   };
+
+  const letter = [
+    '반갑습니다. 디자인과 IT를 좋아하는 강현빈입니다.',
+    '무엇을 좋아하는지 알기 위해 다양한 경험, 다양한 포지션을 경험해왔습니다.',
+    '누구는 처음부터 원하던 전공, 원하던 직무를 찾았지만  저는 그렇지 못했습니다.',
+    '대략 4년간 하고 싶은게 무엇인지 찾고나니 기억에 남는건 프론트엔드 분야였습니다.',
+    '저의 상상을 빈 화면에서 시작하여 채워나가는게 재밌었기 때문입니다.',
+    '이 공간은 제가 그동안 경험했던 것들을 담아놓았습니다.',
+    '제 작은 세상에 와주셔서 감사합니다.'
+  ];
 
   return (
     <div className="home-page">
@@ -57,17 +65,19 @@ const HomePage = () => {
         {/* Left Section - AboutMe Content */}
         <div className="content-left">
           <div className="text-content">
-            <h1 className="about-tag">&lt;aboutMe /&gt;</h1>
+            <GradientText 
+              className="about-tag"
+              colors={["#4CAF50", "#5DE0F0", "#FFD700", "#FF6B6B"]}
+              animationSpeed={6}
+            >
+              &lt;aboutMe /&gt;
+            </GradientText>
             <p className="greeting">Hi I am</p>
             <h2 className="name">HyunBin Kang</h2>
             <h3 className="title">
               <span className="title-line">Front-End</span>
               <span className="title-line">Developer</span>
             </h3>
-            <p className="description">
-              화려한 고대비테마의 사이버펑크 디자인을 좋아합니다.<br></br>웹페이지 보고 이상하게 보실까봐 말씀드리자면 <br></br>
-              그래도 회사에서는 얌전하게 만듭니다.
-            </p>
             <Button 
               className="download-cv-btn"
               color="#4CAF50,#5DE0F0,#FFD700,#FF6B6B"
@@ -77,6 +87,11 @@ const HomePage = () => {
               Download CV
             </Button>
           </div>
+        </div>
+
+        {/* Right Section - Letter */}
+        <div className="content-right">
+          <LetterLines lines={letter} intervalMs={1600} />
         </div>
       </main>
 

@@ -18,3 +18,15 @@
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
 }
+
+/* Variants for Projects type badge using Tag component but keep prior colors */
+.type-badge.personal.tag {
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+.type-badge.company.tag {
+  color: #fff;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: none;
+}

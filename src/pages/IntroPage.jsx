@@ -58,7 +58,7 @@ const IntroPage = () => {
             <span className="static-text">Creative </span>
             <OpeningRotatingText
               texts={[
-                "Action?",
+                "BinKoon?",
                 "BinKoon!"
               ]}
               rotationInterval={1500}
@@ -73,7 +73,7 @@ const IntroPage = () => {
               <ShinyText text="사람은 누구든 창작 욕구가 있다, 나는 그걸 화면에 옮겼다." disabled={false} speed={3} className='custom-class' />
             </h1>
             <p className="sub-title">
-              <ShinyText text="풀스택을 꿈꾸는 방구석 개발자" disabled={false} speed={3} className='custom-class' />
+              <ShinyText text="디자인을 좋아한 방구석 개발자" disabled={false} speed={3} className='custom-class' />
             </p>
           </div>
           

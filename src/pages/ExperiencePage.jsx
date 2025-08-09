@@ -4,6 +4,8 @@ import Orb from '../components/external/orb';
 import GradientText from '../components/common/GradientText';
 import ShinyText from '../components/external/shinyText';
 import Modal from '../components/common/Modal';
+import TimelineBar from '../components/ui/TimelineBar';
+import MilestoneCard from '../components/ui/MilestoneCard';
 import '../styles/pages/home.css';
 import '../styles/pages/experience.css';
 
@@ -17,15 +19,25 @@ const ExperiencePage = () => {
   const [dragMoved, setDragMoved] = useState(0);
   const trackRef = useRef(null);
 
+  const formatDate = (iso) => {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    return `${y}.${m}.${d}`;
+  };
+
   // 인생의 레이스 데이터 - 시간순으로 정렬
   const lifeRace = [
-    { id: 1, year: 2022, month: 2, type: 'education', title: '중앙대학교 졸업', subtitle: 'Physics', description: '물리학 단일전공으로 SW는 전혀 접점이 없던 디스플레이 업계 취업 지망생이었습니다.', icon: '🎓', color: '#4CAF50', isMilestone: true },
-    { id: 2, year: 2022, month: 7, type: 'work', title: 'LG Display', subtitle: 'ESG Manager', description: '유해물질 관리 및 납품 관리 업무를 담당했습니다.', icon: '🏢', color: '#FF6B6B', isMilestone: true },
-    { id: 3, year: 2022, month: 12, type: 'education', title: 'SQLD 자격증', subtitle: 'Korea Data Academy', description: 'MySql 자격증 취득', icon: '📜', color: '#FFD700', isMilestone: false },
-    { id: 4, year: 2023, month: 1, type: 'education', title: 'SCSA 20th', subtitle: '삼성SDS 채용연계형 교육생', description: '알고리즘 문제 풀이와 간단한 데이터분석 + 프론트엔드 개발 토이프로젝트 진행', icon: '💻', color: '#5DE0F0', isMilestone: true },
-    { id: 5, year: 2023, month: 7, type: 'work', title: 'Freelance', subtitle: 'Data analysis & Front-End', description: '중소 제조업 타겟 탄소전과정 (LCA) 데이터 분석 보조 및 프론트엔드 개발 업무를 수행했습니다. Python을 활용한 데이터 처리 및 Vue3 기반 대시보드 개발을 담당했습니다.', icon: '🔬', color: '#FF6B6B', isMilestone: true },
-    { id: 6, year: 2023, month: 12, type: 'education', title: 'CSTS FL 자격증', subtitle: 'Korea information institute', description: 'SW 테스트 이론 및 테스트 방법론 자격증 취득', icon: '📜', color: '#FFD700', isMilestone: false },
-    { id: 7, year: 2024, month: 9, type: 'work', title: 'Korea Marine Transport Co', subtitle: 'IT Planner & Front-End', description: '정기 컨테이선 서비스 중 운항 모니터링과 운임지수 예측 주제로 프론트엔드 개발 및 IT 기획 업무를 담당하고 있습니다. Vue2 또는 바닐라 JS기반의 Low Code 플랫폼으로 화면을 개발합니다.', icon: '🚢', color: '#4CAF50', isMilestone: true, isCurrent: true }
+    { id: 1, type: 'education', title: 'Start!', subtitle: '중앙대학교 물리학과 졸업', date: '2022-02-14', icon: '🎓', color: '#4CAF50', isMilestone: true },
+
+    { id: 2, type: 'work', title: 'ON Semiconductor', subtitle: '반도체 테스트 엔지니어', start: '2021-10-25', end: '2022-06-15', icon: '🧪', color: '#5DE0F0', isMilestone: true },
+
+    { id: 3, type: 'work', title: 'LG Display', subtitle: 'ESG Manager', start: '2022-07-05', end: '2022-12-20', icon: '🏢', color: '#5DE0F0', isMilestone: true },
+
+    { id: 4, type: 'education', title: 'SCSA 20th', subtitle: '삼성SDS 채용연계형 교육생', start: '2023-01-16', end: '2023-07-07', icon: '💻', color: '#4CAF50', isMilestone: true },
+
+    { id: 5, type: 'work', title: 'Freelance', subtitle: 'Data analysis & Front-End', start: '2023-07-01', end: '2024-08-31', icon: '🔬', color: '#5DE0F0', isMilestone: true },
+
+    { id: 6, type: 'work', title: 'Korea Marine Transport Co', subtitle: 'IT Planner & Front-End', start: '2024-09-01', end: null, icon: '🚢', color: '#5DE0F0', isMilestone: true, isCurrent: true }
   ];
 
   const handleMilestoneClick = (milestone) => {
@@ -122,7 +134,7 @@ const ExperiencePage = () => {
             colors={["#4CAF50", "#5DE0F0", "#FFD700", "#FF6B6B"]}
             animationSpeed={6}
           >
-            My Life Race
+            &lt;experience /&gt;
           </GradientText>
           <ShinyText 
             text="From Physics Student to Front-End Developer"
@@ -131,6 +143,9 @@ const ExperiencePage = () => {
             className="experience-subtitle"
           />
         </div>
+
+        {/* Timeline (Gantt-like) */}
+        <TimelineBar items={lifeRace} />
 
         {/* Life Race Track */}
         <div className="race-track-container">
@@ -153,21 +168,12 @@ const ExperiencePage = () => {
 
             {/* Milestones */}
             {lifeRace.map((milestone) => (
-              <div 
+              <MilestoneCard 
                 key={milestone.id}
-                className={`milestone ${milestone.isMilestone ? 'major' : 'minor'} ${milestone.isCurrent ? 'current' : ''}`}
-                style={{ '--milestone-color': milestone.color }}
+                milestone={milestone}
                 onMouseUp={(e) => handleMilestoneMouseUp(e, milestone)}
                 onTouchEnd={(e) => handleMilestoneMouseUp(e, milestone)}
-              >
-                <div className="milestone-icon">{milestone.icon}</div>
-                <div className="milestone-info">
-                  <div className="milestone-date">{milestone.year}.{milestone.month.toString().padStart(2, '0')}</div>
-                  <div className="milestone-title">{milestone.title}</div>
-                  <div className="milestone-subtitle">{milestone.subtitle}</div>
-                </div>
-                {milestone.isCurrent && <div className="current-indicator">NOW</div>}
-              </div>
+              />
             ))}
 
             {/* Finish Line */}
@@ -193,13 +199,17 @@ const ExperiencePage = () => {
           iconColor={selectedMilestone?.color}
         >
           <div className="modal-date">
-            {selectedMilestone?.year}.{selectedMilestone?.month.toString().padStart(2, '0')}
+            {selectedMilestone?.date
+              ? formatDate(selectedMilestone.date)
+              : `${formatDate(selectedMilestone?.start)} ~ ${selectedMilestone?.end ? formatDate(selectedMilestone.end) : 'NOW'}`}
             {selectedMilestone?.isCurrent && <span className="current-badge">CURRENT</span>}
           </div>
-          <p className="modal-description">{selectedMilestone?.description}</p>
+          {selectedMilestone?.description && (
+            <p className="modal-description">{selectedMilestone.description}</p>
+          )}
           <div className="modal-type">
             <span className={`type-badge ${selectedMilestone?.type}`}>
-              {selectedMilestone?.type === 'work' ? '💼 Work' : '🎓 Education'}
+              {selectedMilestone?.type === 'work' ? '💼 Work' : selectedMilestone?.type === 'education' ? '🎓 Education' : '🏷️'}
             </span>
           </div>
         </Modal>
