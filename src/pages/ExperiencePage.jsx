@@ -29,7 +29,7 @@ const ExperiencePage = () => {
   const lifeRace = [
     { id: 1, type: 'education', title: 'Start!', subtitle: '중앙대학교 물리학과 졸업', date: '2022-02-14', description: '물리학 단일 전공, 아직 뭘 하고 싶은지 몰랐던 상태', icon: '🎓', color: '#4CAF50', isMilestone: true },
 
-    { id: 2, type: 'work', title: 'ON Semiconductor', subtitle: '반도체 테스트 엔지니어', start: '2021-10-25', end: '2022-06-15', description: '우연히 접한 SW, C++로 반도체 안정성 테스트 로직 유지수', icon: '🧪', color: '#5DE0F0', isMilestone: true },
+    { id: 2, type: 'work', title: 'ON Semiconductor', subtitle: '반도체 테스트 엔지니어', start: '2021-10-25', end: '2022-06-15', description: '우연히 접한 SW, C++로 반도체 안정성 테스트 로직 유지보수', icon: '🧪', color: '#5DE0F0', isMilestone: true },
 
     { id: 3, type: 'work', title: 'LG Display', subtitle: 'ESG Manager', start: '2022-07-05', end: '2022-12-20', description: 'ESG경영팀 유해물질 테스트', icon: '🏢', color: '#5DE0F0', isMilestone: true },
 
