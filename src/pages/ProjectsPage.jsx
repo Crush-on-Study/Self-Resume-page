@@ -167,7 +167,7 @@ const ProjectsPage = () => {
       id: 4,
       title: "업무 자동화를 위한 선사 스케줄 크롤링 및 모니터링 화면",
       description: "정기 컨테이너선사 스케줄 일정 크롤링 + 모니터링 개발",
-      tech: ["Vue2", "Python", "Azure", "Figma", "Oracle"],
+      tech: ["Apex (Vanila JS)", "Python", "Azure", "Figma", "Oracle"],
       detailDescription: "[2시간 ➡️ 27분] 수기로 스케줄 업데이트하던 작업을 선사 홈페이지를 찍고 자동으로 크롤링하고, 실시간으로 모니터링할 수 있는 대시보드를 개발했습니다.",
       role: "기획, 프론트엔드, 크롤링",
       duration: "2025.06.25 - 2025.08.22",
@@ -320,6 +320,22 @@ const ProjectsPage = () => {
         <img 
           src={src} 
           alt="Portfolio preview"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      );
+    }
+
+    // Crawling project: cycle two real screenshots in public/crawling
+    if (project?.id === 4) {
+      const imgs = [
+        '/crawling/Crawling.png',
+        '/crawling/GoogleUpload.png'
+      ];
+      const src = imgs[currentImageIndex % imgs.length];
+      return (
+        <img 
+          src={src} 
+          alt="Crawling project preview"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       );
