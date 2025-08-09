@@ -54,6 +54,8 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    border: 1px solid transparent;
+    border-radius: 20px;
   }
 
   .gooey-nav-container .nav-text {
@@ -82,12 +84,9 @@
   }
   
   .gooey-nav-container nav ul li.active {
-    color: #FFD700 !important; /* Windows 환경에서 더 선명한 노란색 */
-    text-shadow: 
-      0 0 8px rgba(255, 215, 0, 0.8),
-      0 0 16px rgba(255, 215, 0, 0.4),
-      0 0 24px rgba(255, 215, 0, 0.2); /* 더 강한 글로우 효과 */
-    font-weight: 600; /* Windows에서 더 굵게 */
+    color: #ffffff !important;
+    text-shadow: none;
+    font-weight: 600;
   }
 
   .gooey-nav-container nav ul li.active::after {
@@ -114,7 +113,7 @@
   }
   
   .gooey-nav-container .effect.text.active {
-    color: #090909;
+    color: #ffffff;
   }
   
   .gooey-nav-container .effect.filter {
@@ -136,7 +135,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.2));
+    background: transparent;
     transform: scale(0);
     opacity: 0;
     z-index: -1;
@@ -312,9 +311,9 @@
   }
 
   .gooey-nav-container nav ul li.active a {
-    background: rgba(255, 215, 0, 0.2);
-    border-color: #FFD700;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    background: transparent;
+    border-color: #4CAF50;
+    box-shadow: none;
   }
   
   .gooey-nav-container .nav-text {

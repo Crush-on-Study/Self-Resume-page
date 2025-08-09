@@ -76,7 +76,10 @@
 }
 
 .filter-button.active {
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  background: transparent;
+  color: #ffffff;
+  box-shadow: none;
+  border-color: #4CAF50;
 }
 
 /* Project Type Badge */
@@ -398,10 +401,10 @@
 }
 
 .tab-button.active {
-  background: linear-gradient(135deg, #4CAF50, #5DE0F0);
-  border-color: transparent;
+  background: transparent;
+  border-color: #4CAF50;
   color: #ffffff;
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  box-shadow: none;
 }
 
 /* Tab Content Styles */

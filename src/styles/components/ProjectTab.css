@@ -24,8 +24,8 @@
 }
 
 .tab-button.active {
-  background: var(--gradient-secondary);
-  border-color: transparent;
+  background: transparent;
+  border-color: #4CAF50;
 }
 
 /* Tab Content */

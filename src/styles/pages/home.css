@@ -203,6 +203,13 @@
   color: #FFD700;
 }
 
+/* Border-only active state for GooeyNav links (home page override) */
+.gooey-nav-container nav ul li.active a {
+  background: transparent;
+  border-color: #4CAF50;
+  box-shadow: none;
+}
+
 .gooey-nav-container nav ul li::after {
   background: transparent;
 }

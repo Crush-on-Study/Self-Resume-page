@@ -162,7 +162,7 @@ const ProjectsPage = () => {
   const companyProjects = [
     {
       id: 4,
-      title: "업무 자동화를 위한 크롤링 및 모니터링 화면",
+      title: "업무 자동화를 위한 선사 스케줄 크롤링 및 모니터링 화면",
       description: "정기 컨테이너선사 스케줄 일정 크롤링 + 모니터링 개발",
       tech: ["Vue2", "Python", "Azure", "Figma", "Oracle"],
       detailDescription: "[2시간 ➡️ 27분] 수기로 스케줄 업데이트하던 작업을 선사 홈페이지를 찍고 자동으로 크롤링하고, 실시간으로 모니터링할 수 있는 대시보드를 개발했습니다.",
@@ -170,7 +170,7 @@ const ProjectsPage = () => {
       duration: "2025.06.25 - 2025.08.22",
       type: "company",
       member: "4인",
-      challenges: ["CAPTCHA 차단봇 우회", "이미지 파일 형태 처리 방법", "유지보수 최소화를 위한 최적화 고민"],
+      challenges: ["CAPTCHA 차단봇 우회", "구글 드라이브 업로드 자동화", "웹에 에러로그 뿌려는 방법"],
       solutions: ["사랑해요 오픈소스", "Azure OCR엔진 사용", "크롤링 작업부터 기간계 DB 적재까지의 구조화 리팩토링"],
       githubUrl: "https://github.com/Crush-on-Study/RPA_Crawling",
       overview: {

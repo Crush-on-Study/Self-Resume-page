@@ -75,4 +75,9 @@
       opacity: 0;
     }
   }
+
+  /* Unified active state for all Button usages: border-only highlight */
+  .star-border-container.active .inner-content {
+    border-color: #4CAF50;
+  }
   

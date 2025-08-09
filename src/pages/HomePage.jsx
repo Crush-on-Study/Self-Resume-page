@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../components/common/Header';
 import Orb from '../components/external/orb';
 import Button from '../components/common/button';
+import GlitchText from '../components/external/GlitchText';
 import Popup from '../components/common/Popup';
 import GradientText from '../components/common/GradientText';
 import LetterLines from '../components/ui/LetterLines';
@@ -64,8 +65,20 @@ const HomePage = () => {
             <p className="greeting">Hi I am</p>
             <h2 className="name">HyunBin Kang</h2>
             <h3 className="title">
-              <span className="title-line">Front-End</span>
-              <span className="title-line">Developer</span>
+              <GlitchText 
+                className="title-line" 
+                enableOnHover={true}
+                style={{ fontSize: '4rem', fontWeight: 'bold' }}
+              >
+                Front-End
+              </GlitchText>
+              <GlitchText 
+                className="title-line" 
+                enableOnHover={true}
+                style={{ fontSize: '4rem', fontWeight: 'bold' }}
+              >
+                Developer
+              </GlitchText>
             </h3>
             <Button 
               className="download-cv-btn"
