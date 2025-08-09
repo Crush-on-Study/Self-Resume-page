@@ -66,7 +66,8 @@ const ProjectTabContent = ({ activeTab, selectedProject }) => {
                           design: 'Design',
                           deployment: 'Deployment',
                           maps: 'Maps',
-                          db: 'Database'
+                          db: 'Database',
+                          openSource: 'Open Source'
                         }[key] || key
                       }</h4>
                       <p>{value}</p>

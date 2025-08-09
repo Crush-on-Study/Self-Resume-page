@@ -36,7 +36,8 @@ const ProjectsPage = () => {
       architecture: {
         frontend: "React + Framer Motion + CSS3 + Three.js",
         backend: "Firebase Hosting",
-        design: "Figma"
+        design: "Figma",
+        openSource: "React-bits"
       },
       features: [
         "인터랙티브 애니메이션 시스템",
