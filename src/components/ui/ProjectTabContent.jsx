@@ -75,22 +75,22 @@ const ProjectTabContent = ({ activeTab, selectedProject }) => {
                   ))
                 ) : (
                   <>
-                    <div className="arch-card">
-                      <h4>Frontend</h4>
+                <div className="arch-card">
+                  <h4>Frontend</h4>
                       <p>Vue2 + Chart.js</p>
-                    </div>
-                    <div className="arch-card">
-                      <h4>Backend</h4>
+                </div>
+                <div className="arch-card">
+                  <h4>Backend</h4>
                       <p>Python Flask</p>
-                    </div>
-                    <div className="arch-card">
-                      <h4>Database</h4>
+                </div>
+                <div className="arch-card">
+                  <h4>Database</h4>
                       <p>Oracle DB</p>
-                    </div>
-                    <div className="arch-card">
-                      <h4>Infrastructure</h4>
+                </div>
+                <div className="arch-card">
+                  <h4>Infrastructure</h4>
                       <p>Azure VM</p>
-                    </div>
+                </div>
                   </>
                 )}
               </div>

@@ -28,6 +28,7 @@ const ProjectsPage = () => {
       duration: "2025.08.01 - 2025.08.09",
       type: "personal",
       member: "1인",
+      status: "completed",
       overview: {
         problem: "개발자로서의 경험과 프로젝트를 효과적으로 보여줄 방법이 필요했습니다.",
         solution: "인터랙티브한 애니메이션과 현대적인 디자인을 적용한 포트폴리오 웹사이트를 개발했습니다.",
@@ -69,6 +70,7 @@ const ProjectsPage = () => {
       duration: "2025.08.10 - 2025.12.01",
       type: "personal",
       member: "2인",
+      status: "ongoing",
       overview: {
         problem: "식권어플을 사용하는 기업들 대상으로, 부족한 식권포인트를 P2P로 거래할 수 있는 플랫폼이 필요했습니다. 이런 플랫폼이 없어서 매번 발품팔아 식권을 사는게 불편했던 것에서 시작했습니다.",
         solution: "P2P 마켓플레이스에 실시간 채팅과 거래 시스템을 구현했습니다.",
@@ -116,6 +118,7 @@ const ProjectsPage = () => {
       duration: "2025.03.06 - 2025.03.20",
       type: "personal",
       member: "1인",
+      status: "completed",
       overview: {
         problem: "저희 회사 점심시간을 효율적으로 활용하여 최대한 많은 휴식시간을 갖고 싶을때 도움이 되고자 했습니다.",
         solution: "위치 기반 식당 추천과 다 먹고 난 뒤 남은 시간 예측 기능을 제공하는 앱을 개발했습니다.",
@@ -170,6 +173,7 @@ const ProjectsPage = () => {
       duration: "2025.06.25 - 2025.08.22",
       type: "company",
       member: "4인",
+      status: "completed",
       challenges: ["CAPTCHA 차단봇 우회", "구글 드라이브 업로드 자동화", "웹에 에러로그 뿌려는 방법"],
       solutions: ["사랑해요 오픈소스", "Azure OCR엔진 사용", "크롤링 작업부터 기간계 DB 적재까지의 구조화 리팩토링"],
       githubUrl: "https://github.com/Crush-on-Study/RPA_Crawling",
@@ -251,7 +255,8 @@ const ProjectsPage = () => {
       duration: "2025.07.25 - 2025.11.30",
       type: "company",
       member: "2인 + 외주업체",
-      challenges: ["검색 키워드 기반 크롤링", "운임 방향 예측에 대한 근거 제시", "크롤링 데이터 파이프라인 구축"],
+      status: "ongoing",
+      challenges: ["검색 키워드 기반 크롬링", "운임 방향 예측에 대한 근거 제시", "크롤링 데이터 파이프라인 구축"],
       solutions: ["???", "ChatGPT 기반 LLM 연동", "cx_Oracle 기반 쿼리작성"],
       githubUrl: "https://github.com/Crush-on-Study/profit_dashboard"
     },
@@ -265,6 +270,7 @@ const ProjectsPage = () => {
       duration: "2023.07.01 - 2024.08.31",
       type: "company",
       member: "2인 + 외주업체",
+      status: "ongoing",
       challenges: ["공정 데이터 취합", "사용자 친화적 인터페이스 설계", "다양한 제품 유형 지원"],
       solutions: ["직접 인터뷰", "단계별 가이드 시스템", "템플릿 기반 데이터 입력"],
       githubUrl: "https://github.com/Crush-on-Study"
@@ -283,7 +289,7 @@ const ProjectsPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % 3);
-    }, 2000);
+    }, 3000); // slower cycle
 
     return () => clearInterval(interval);
   }, []);
@@ -301,16 +307,34 @@ const ProjectsPage = () => {
     }, 300);
   };
 
-  const getCarouselImage = (index) => {
+  const getCarouselImage = (project, flatIndex) => {
+    // Portfolio project: cycle through real screenshots in public/
+    if (project?.id === 1) {
+      const imgs = [
+        '/portfolio/IntroPage.png',
+        '/portfolio/HomePage.png',
+        '/portfolio/Experience.png'
+      ];
+      const src = imgs[currentImageIndex % imgs.length];
+      return (
+        <img 
+          src={src} 
+          alt="Portfolio preview"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      );
+    }
+
+    // Fallback: emoji carousel for other projects
     const images = [
-      "🎨", "💻", "🚀", // 포트폴리오 웹사이트
-      "🛒", "💬", "💰", // Black Market
-      "🍽️", "⏰", "📍", // Lunch Insects
-      "🚢", "📊", "🌱", // 크롤링 프로젝트
-      "📈", "💹", "📉", // 운임 예측
-      "🏭", "♻️", "🌍"  // LCA 대시보드
+      '🎨', '💻', '🚀', // 포트폴리오 웹사이트 (unused when id===1)
+      '🛒', '💬', '💰', // Black Market
+      '🍽️', '⏰', '📍', // Lunch Insects
+      '🚢', '📊', '🌱', // 크롤링 프로젝트
+      '📈', '💹', '📉', // 운임 예측
+      '🏭', '♻️', '🌍'  // LCA 대시보드
     ];
-    return images[index];
+    return images[flatIndex % images.length];
   };
 
   const getFilterButtonClass = (type) => {
@@ -383,9 +407,14 @@ const ProjectsPage = () => {
                   onClick={() => handleProjectClick(project)}
                 >
                   <div className="project-image">
+                    {project.status && (
+                      <div className={`status-ribbon ${project.status}`}>
+                        {project.status === 'completed' ? 'Complete' : 'Ongoing'}
+                      </div>
+                    )}
                     <div className="project-carousel">
-                      <div className="carousel-image">
-                        {getCarouselImage(index * 3 + currentImageIndex)}
+                      <div className={`carousel-image show`}>
+                        {getCarouselImage(project, index * 3 + currentImageIndex)}
                       </div>
                     </div>
                   </div>
@@ -402,6 +431,9 @@ const ProjectsPage = () => {
                     <div className="project-type">
                       <Tag className={`type-badge ${project.type}`}>
                         {project.type === 'personal' ? 'Personal' : 'Company'}
+                      </Tag>
+                      <Tag className={`status-badge ${project.status}`} style={{ marginLeft: 8 }}>
+                        {project.status === 'completed' ? 'Completed' : 'Ongoing'}
                       </Tag>
                     </div>
                   </div>
@@ -430,6 +462,9 @@ const ProjectsPage = () => {
                   <span className="detail-member">👥 {selectedProject.member}</span>
                   <Tag className={`type-badge ${selectedProject.type}`}>
                     {selectedProject.type === 'personal' ? 'Personal' : 'Company'}
+                  </Tag>
+                  <Tag className={`status-badge ${selectedProject.status}`} style={{ marginLeft: 8 }}>
+                    {selectedProject.status === 'completed' ? 'Complete' : 'Ongoing'}
                   </Tag>
                 </div>
               </div>
