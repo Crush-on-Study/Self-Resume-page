@@ -1,0 +1,30 @@
+.contribution-badge {
+  margin-top: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.contribution-badge .contribution-text {
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  color: var(--primary-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contribution-badge .progress-bar {
+  width: 60px;
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.contribution-badge .progress-fill {
+  height: 100%;
+  background: linear-gradient(45deg, #4CAF50, #5DE0F0);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}

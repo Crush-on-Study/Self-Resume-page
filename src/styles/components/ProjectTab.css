@@ -186,6 +186,21 @@
   color: var(--text-secondary);
 }
 
+.step-result {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary-green);
+}
+
+.step-result strong {
+  color: var(--primary-green);
+  margin-right: var(--spacing-xs);
+}
+
+
+
 /* Screenshots Section */
 .screenshots-grid {
   display: grid;

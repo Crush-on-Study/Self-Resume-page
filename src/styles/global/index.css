@@ -3,4 +3,8 @@
 @import './variables.css';
 @import './typography.css';
 @import './layout.css';
-@import './animations.css'; 
+@import './animations.css';
+
+/* Component Styles */
+@import '../components/ContributionBadge.css';
+@import '../components/ProjectTab.css'; 

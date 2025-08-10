@@ -756,6 +756,24 @@
   background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,107,107,0.15));
   color: #FFD700;
   border-color: rgba(255,215,0,0.4);
+}
+
+.status-badge.coming-soon {
+  background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(239,68,68,0.2));
+  color: #FCA5A5;
+  border-color: rgba(252,165,165,0.5);
+}
+
+.status-badge.planning {
+  background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(239,68,68,0.2));
+  color: #FCA5A5;
+  border-color: rgba(252,165,165,0.5);
+}
+
+.status-badge.renewal {
+  background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(167,139,250,0.2));
+  color: #A78BFA;
+  border-color: rgba(167,139,250,0.5);
 } 
 
 .status-ribbon {
@@ -784,4 +802,19 @@
 .status-ribbon.ongoing {
   background: linear-gradient(135deg, #b58900, #d4ac0d);
   box-shadow: 0 4px 10px rgba(212,172,13,0.4);
+}
+
+.status-ribbon.coming-soon {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  box-shadow: 0 4px 10px rgba(220,38,38,0.4);
+}
+
+.status-ribbon.planning {
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  box-shadow: 0 4px 10px rgba(220,38,38,0.4);
+}
+
+.status-ribbon.renewal {
+  background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+  box-shadow: 0 4px 10px rgba(124,58,237,0.4);
 } 

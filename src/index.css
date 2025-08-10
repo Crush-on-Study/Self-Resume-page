@@ -3,11 +3,17 @@
 
 /* Component Styles */
 @import './styles/components/ProjectTab.css';
-@import './styles/components/Header.css';
-@import './styles/components/Button.css';
+@import './styles/components/header.css';
+@import './styles/components/button.css';
 @import './styles/components/GradientText.css';
 @import './styles/components/GooeyNav.css';
 @import './styles/components/Tag.css';
+@import './styles/components/ContributionBadge.css';
+@import './styles/components/TimelineBar.css';
+@import './styles/components/LetterLines.css';
+@import './styles/components/LoadingSpinner.css';
+@import './styles/components/modal.css';
+@import './styles/components/popup.css';
 
 /* Page Styles */
 @import './styles/pages/home.css';
@@ -21,3 +27,4 @@
 @import './styles/external/Ballpit.css';
 @import './styles/external/OpeningRotatingText.css';
 @import './styles/external/ShinyText.css';
+@import './styles/external/GlitchText.css';

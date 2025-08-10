@@ -1,4 +1,5 @@
 import React from 'react';
+import ContributionBadge from '../common/ContributionBadge';
 
 const ProjectTabContent = ({ activeTab, selectedProject }) => {
   if (!selectedProject) return null;
@@ -124,6 +125,12 @@ const ProjectTabContent = ({ activeTab, selectedProject }) => {
                     <div className="step-content">
                       <h4>{step.title}</h4>
                       <p>{step.description}</p>
+                      {step.result && (
+                        <div className="step-result">
+                          <strong>결과물:</strong> {step.result}
+                        </div>
+                      )}
+                      <ContributionBadge contribution={step.contribution} />
                     </div>
                   </div>
                 )) || (

@@ -46,11 +46,11 @@ const ProjectsPage = () => {
         "다크 테마"
       ],
       process: [
-        {step: 1, title: "기획 및 디자인", description: "Figma를 활용한 UI/UX 디자인 및 프로젝트 구조 설계 + 디자인 오픈소스 서칭"},
-        {step: 2, title: "컨텐츠 구상", description: "어떤 내용들을 담아서 보여드릴지 고민"},
-        {step: 3, title: "프론트엔드 개발", description: "React + Three.js + Framer Motion을 활용한 인터랙티브 컴포넌트 개발 및 오픈소스 커스터마이징"},
-        {step: 4, title: "최적화", description: "재사용 컴포넌트 리팩토링 + 번들러 최적화를 위한 스플리팅팅"},
-        {step: 5, title: "배포", description: "Firebase Hosting을 통한 배포"}
+        {step: 1, title: "기획 및 디자인", description: "Figma를 활용한 UI/UX 디자인 및 프로젝트 구조 설계 + 디자인 오픈소스 서칭", contribution: 100},
+        {step: 2, title: "컨텐츠 구상", description: "어떤 내용들을 담아서 보여드릴지 고민", contribution: 100},
+        {step: 3, title: "프론트엔드 개발", description: "React + Three.js + Framer Motion을 활용한 인터랙티브 컴포넌트 개발 및 오픈소스 커스터마이징", contribution: 100},
+        {step: 4, title: "최적화", description: "재사용 컴포넌트 리팩토링 + 번들러 최적화를 위한 스플리팅팅", contribution: 100},
+        {step: 5, title: "배포", description: "Firebase Hosting을 통한 배포", contribution: 100}
       ],
       screenshots: [],
       lessons: [
@@ -118,7 +118,7 @@ const ProjectsPage = () => {
       duration: "2025.03.06 - 2025.03.20",
       type: "personal",
       member: "1인",
-      status: "completed",
+      status: "renewal",
       overview: {
         problem: "저희 회사 점심시간을 효율적으로 활용하여 최대한 많은 휴식시간을 갖고 싶을때 도움이 되고자 했습니다.",
         solution: "위치 기반 식당 추천과 다 먹고 난 뒤 남은 시간 예측 기능을 제공하는 앱을 개발했습니다.",
@@ -174,8 +174,8 @@ const ProjectsPage = () => {
       type: "company",
       member: "4인",
       status: "completed",
-      challenges: ["CAPTCHA 차단봇 우회", "구글 드라이브 업로드 자동화", "웹에 에러로그 뿌려는 방법"],
-      solutions: ["사랑해요 오픈소스", "Azure OCR엔진 사용", "크롤링 작업부터 기간계 DB 적재까지의 구조화 리팩토링"],
+      challenges: ["CAPTCHA 차단봇 우회", "구글 드라이브 업로드 자동화", "사원직급의 PM으로써 과장,차장들과 소통을 해야한다는 점"],
+      solutions: ["사랑해요 오픈소스", "OAuth Key 기반 구글 드라이브와 데이터 통신 구현", "미팅 들어가기전에 항상 본인이 안건을 확실히 정하여 모든 회의를 30분안에 끝내도록 했으며, 매번 회의록을 적어 요약한 내용을 공유함."],
       githubUrl: "https://github.com/Crush-on-Study/RPA_Crawling",
       overview: {
         problem: "매일 2시간씩 수기로 컨테이너선사 스케줄을 업데이트하는 반복적인 업무",
@@ -183,9 +183,10 @@ const ProjectsPage = () => {
         impact: "업무 시간 90% 단축 (2시간 → 27분), 실시간 데이터 추적 가능"
       },
       architecture: {
-        frontend: "Vue2",
-        backend: "Python FastAPI + Selenium",
-        database: "Oracle DB"
+        frontend: "Apex (Vanila JS)",
+        backend: "Python (Selenium)",
+        database: "Oracle DB",
+        tools: "UiPath"
       },
       features: [
         "실시간 스케줄 크롤링 (32개 선사, 179척)",
@@ -197,28 +198,52 @@ const ProjectsPage = () => {
       process: [
         {
           step: 1,
-          title: "데이터 수집",
-          description: "Selenium을 활용한 웹 크롤링으로 179척의 스케줄 정보 자동 수집"
+          title: "문제 파악 및 기획",
+          description: "운항팀이 공동운항 타선사 스케줄을 이메일/웹사이트 방문으로 수기 등록하며 평균 2시간 소요되는 반복 업무임을 파악하고 자동화 기획 시작",
+          result: "기획서, 기능명세서, 화면정의서",
+          contribution: 100
         },
         {
           step: 2,
-          title: "이미지 처리",
-          description: "일부 스케줄 데이터가 이미지로 되어있는 경우는 Azure OCR 엔진을 통한 이미지 파일의 텍스트 추출 및 정제"
+          title: "팀 구성 및 역할 분담",
+          description: "PM으로서 4명 인력 구성 - 나(기획/PM/크롤링/프론트엔드), UiPath 자동화 담당, 운항팀 현업 담당, 인프라 담당",
+          result: "WBS",
+          contribution: 100
         },
         {
-          step: 3,
-          title: "데이터 검증",
-          description: "수집된 데이터의 유효성 검사 및 중복 제거"
+          step: "3-1",
+          title: "웹 크롤링 구현",
+          description: "타겟 선사별 선박 스케줄(입항/접안/출항 예정시간, 항구, 선박명, 항차번호) 크롤링 및 구글드라이브 자동 업로드 구현",
+          result: "크롤링 코드 (Python), 각종 스케줄 데이터 파일",
+          contribution: 100
+        },
+        {
+          step: "3-2",
+          title: "이메일 자동화",
+          description: "운항팀 통합 스케줄 이메일 계정에 RPA봇 계정 수신추가, 필터 조건으로 원하는 스케줄 정보(입항/접안/출항 예정시간, 항구, 선박명, 항차번호) 추출 및 데이터 통합",
+          result: "UiPath 작업물, 각종 스케줄 데이터 파일",
+          contribution: 0
         },
         {
           step: 4,
-          title: "DB 저장",
-          description: "Oracle DB에 정제된 데이터 저장 및 인덱싱"
+          title: "데이터 검증 및 가상테이블 비교",
+          description: "스케줄 정확성 체크용 가상테이블 생성, 업데이트 여부 판단 후 문제없으면 기간계 DB 적재",
+          result: "체크용 가상테이블",
+          contribution: 0
         },
         {
           step: 5,
-          title: "대시보드 표시",
-          description: "Vue2 기반 실시간 대시보드로 데이터 시각화"
+          title: "현업 최종 검증",
+          description: "기간계 DB 적재 후 운항팀 현업의 최종 체크 및 save 승인",
+          result: "테스트 시나리오",
+          contribution: 30
+        },
+        {
+          step: 6,
+          title: "모니터링 대시보드 구축",
+          description: "전 과정 흐름을 모니터링할 수 있는 대시보드 화면 개발",
+          result: "화면",
+          contribution: 20
         }
       ],
       screenshots: [
@@ -239,10 +264,12 @@ const ProjectsPage = () => {
         }
       ],
       lessons: [
-        "CAPTCHA 우회를 위한 다양한 기술 조합의 중요성",
-        "비동기 프로그래밍 기반 웹 크롤링",
-        "실시간 모니터링 시스템의 안정성 확보 방법",
-        "OCR 정확도 향상을 위한 이미지 전처리의 중요성"
+        "사원직급에서 PM 역할을 맡아 상급자들과의 소통과 협업을 이끌어내는 리더십 역량",
+        "CAPTCHA 우회를 위한 다양한 기술 조합과 오픈소스 활용의 중요성",
+        "비동기 프로그래밍을 활용한 대용량 데이터 크롤링 시스템 구축 방법",
+        "실시간 모니터링 대시보드를 통한 업무 프로세스 투명성 확보",
+        "OAuth 기반 구글 드라이브 API 연동으로 자동화 파이프라인 완성",
+        "업무 시간 90% 단축을 통한 RPA 도입의 비즈니스 임팩트 실현"
       ]
     },
     {
@@ -262,18 +289,19 @@ const ProjectsPage = () => {
     },
     {
       id: 6,
-      title: "중소 제조업 대상 LCA 대시보드",
-      description: "중소 제조업 대상 환경 부하 및 환경 영향 평가 프로그램 개발",
-      tech: ["Vue3", "Python", "Figma"],
-      detailDescription: "중소 제조업체들이 제품의 환경 영향을 쉽게 평가할 수 있도록 LCA(Life Cycle Assessment) 대시보드를 개발했습니다. 복잡한 환경 평가 과정을 직관적인 인터페이스로 제공하여 중소기업도 쉽게 활용할 수 있도록 했습니다.",
-      role: "프론트엔드,데이터분석 보조",
-      duration: "2023.07.01 - 2024.08.31",
+      title: "다음 프로젝트를 기대해주세요! 🚀",
+      description: "새로운 도전과 성장을 위한 프로젝트를 준비 중입니다.",
+      tech: ["Coming Soon..."],
+      detailDescription: "더 나은 서비스를 위한 새로운 프로젝트를 기획하고 있습니다.",
+      role: "기획 중",
+      duration: "Coming Soon...",
       type: "company",
-      member: "2인 + 외주업체",
-      status: "ongoing",
-      challenges: ["공정 데이터 취합", "사용자 친화적 인터페이스 설계", "다양한 제품 유형 지원"],
-      solutions: ["직접 인터뷰", "단계별 가이드 시스템", "템플릿 기반 데이터 입력"],
-      githubUrl: "https://github.com/Crush-on-Study"
+      member: "Coming Soon...",
+              status: "planning",
+      specialClass: "coming-soon",
+      challenges: ["새로운 도전을 위한 기획 중"],
+      solutions: ["준비 중..."],
+      githubUrl: ""
     }
   ];
 
@@ -424,8 +452,8 @@ const ProjectsPage = () => {
                 >
                   <div className="project-image">
                     {project.status && (
-                      <div className={`status-ribbon ${project.status}`}>
-                        {project.status === 'completed' ? 'Complete' : 'Ongoing'}
+                      <div className={`status-ribbon ${project.status} ${project.specialClass || ''}`}>
+                        {project.status === 'completed' ? 'Complete' : project.status === 'renewal' ? 'Renewal' : project.status === 'planning' ? 'Planning' : 'Ongoing'}
                       </div>
                     )}
                     <div className="project-carousel">
@@ -448,9 +476,9 @@ const ProjectsPage = () => {
                       <Tag className={`type-badge ${project.type}`}>
                         {project.type === 'personal' ? 'Personal' : 'Company'}
                       </Tag>
-                      <Tag className={`status-badge ${project.status}`} style={{ marginLeft: 8 }}>
-                        {project.status === 'completed' ? 'Completed' : 'Ongoing'}
-                      </Tag>
+                                          <Tag className={`status-badge ${project.status} ${project.specialClass || ''}`} style={{ marginLeft: 8 }}>
+                      {project.status === 'completed' ? 'Completed' : project.status === 'renewal' ? 'Renewal' : project.status === 'planning' ? 'Planning' : 'Ongoing'}
+                    </Tag>
                     </div>
                   </div>
                 </div>
@@ -480,7 +508,7 @@ const ProjectsPage = () => {
                     {selectedProject.type === 'personal' ? 'Personal' : 'Company'}
                   </Tag>
                   <Tag className={`status-badge ${selectedProject.status}`} style={{ marginLeft: 8 }}>
-                    {selectedProject.status === 'completed' ? 'Complete' : 'Ongoing'}
+                    {selectedProject.status === 'completed' ? 'Complete' : selectedProject.status === 'renewal' ? 'Renewal' : selectedProject.status === 'planning' ? 'Planning' : 'Ongoing'}
                   </Tag>
                 </div>
               </div>
