@@ -6,7 +6,7 @@
     position: relative;
     margin: 0 auto;
     user-select: none;
-    cursor: pointer;
+    cursor: default;
   }
   
   .glitch::after,

@@ -45,6 +45,7 @@
   color: #ffffff;
   margin: 0 0 1rem 0;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  cursor: default;
 }
 
 .skills-subtitle {

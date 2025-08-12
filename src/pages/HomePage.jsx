@@ -85,6 +85,7 @@ const HomePage = () => {
               color="#4CAF50,#5DE0F0,#FFD700,#FF6B6B"
               speed="4s"
               thickness={2}
+              onClick={() => alert("아직 만들지 못했습니다 ㅠㅠ")}
             >
               Download CV
             </Button>

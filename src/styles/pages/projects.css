@@ -36,7 +36,7 @@
 }
 
 .projects-subtitle {
-  margin: 0 auto;
+  margin: 0;
 }
 
 .projects-title {
@@ -47,6 +47,13 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1rem;
+  cursor: default;
+}
+
+/* GradientText 컴포넌트의 중앙 정렬을 왼쪽으로 재정의 */
+.projects-title.animated-gradient-text {
+  margin: 0;
+  justify-content: flex-start;
 }
 
 .projects-subtitle {

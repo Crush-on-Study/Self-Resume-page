@@ -138,4 +138,4 @@ firebase deploy
 
 **개발자**: Crush on Study  
 **이메일**: twonkang00@naver.com  
-**최종 업데이트**: 2025년 8월 9일  ver 1.0.4
+**최종 업데이트**: 2025년 8월 9일  ver 1.0.5

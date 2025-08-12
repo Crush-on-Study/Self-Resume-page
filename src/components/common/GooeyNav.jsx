@@ -88,7 +88,7 @@ const GooeyNav = ({
   };
 
   const updateEffectPosition = (element) => {
-    if (!containerRef.current || !filterRef.current || !textRef.current)
+    if (!containerRef.current || !filterRef.current || !textRef.current || !element)
       return;
     const containerRect = containerRef.current.getBoundingClientRect();
     const pos = element.getBoundingClientRect();
@@ -181,7 +181,7 @@ const GooeyNav = ({
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
     const activeLi = navRef.current.querySelectorAll("li")[activeIndex];
-    if (activeLi) {
+    if (activeLi && activeLi.getBoundingClientRect) {
       updateEffectPosition(activeLi);
       textRef.current?.classList.add("active");
       
@@ -212,7 +212,7 @@ const GooeyNav = ({
     const resizeObserver = new ResizeObserver(() => {
       const currentActiveLi =
         navRef.current?.querySelectorAll("li")[activeIndex];
-      if (currentActiveLi) {
+      if (currentActiveLi && currentActiveLi.getBoundingClientRect) {
         updateEffectPosition(currentActiveLi);
       }
     });
