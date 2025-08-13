@@ -7,6 +7,7 @@ import Button from '../components/common/button';
 import ProjectTabNavigation from '../components/ui/ProjectTabNavigation';
 import ProjectTabContent from '../components/ui/ProjectTabContent';
 import Tag from '../components/common/Tag';
+
 import '../styles/pages/home.css';
 import '../styles/pages/projects.css';
 
@@ -65,7 +66,7 @@ const ProjectsPage = () => {
       id: 2,
       title: "Black Market",
       description: "React로 만든 회사 식권 포인트 p2p 마켓 사이트",
-      tech: ["React", "Zustand", "Figma", "Python (FastAPI)", "AWS EC2"],
+      tech: ["React", "Zustand", "TypeScript", "CSS3", "Figma", "Python (FastAPI)", "PostgreSQL", "Socket.io", "AWS EC2", "Git", "GitHub", "ESLint", "Prettier"],
       role: "기획, 디자인, 프론트엔드",
       duration: "2025.08.10 - 2025.12.01",
       type: "personal",
@@ -77,9 +78,11 @@ const ProjectsPage = () => {
         impact: "사용자들이 온라인상에서 포인트를 거래할 수 있는 플랫폼을 제공했습니다."
       },
       architecture: {
-        frontend: "React",
-        backend: "Python (FastAPI)",
-        infrastructure: "AWS EC2"
+        frontend: "React + TypeScript + Zustand + CSS3",
+        backend: "Python (FastAPI) + PostgreSQL",
+        realtime: "Socket.io",
+        infrastructure: "AWS EC2",
+        tools: "Git + GitHub + ESLint + Prettier"
       },
       features: [
         "소셜로그인 후, 회사 선택하여 회사별 거래소 게시판으로 이동",
@@ -97,15 +100,17 @@ const ProjectsPage = () => {
         { step: 6, title: "배포", description: "AWS EC2 환경 구성 및 무중단 배포 파이프라인 준비" }
       ],
       screenshots: [
-        {title: "메인 마켓", description: "거래 목록 화면", imageUrl: "/screenshots/black-market/main.png"},
-        {title: "채팅 화면", description: "실시간 채팅 인터페이스", imageUrl: "/screenshots/black-market/chat.png"},
-        {title: "거래 진행", description: "거래 프로세스 화면", imageUrl: "/screenshots/black-market/trade.png"}
+        {title: "메인 마켓", description: "거래 목록 화면", imageUrl: "/blackmarket/main.png"},
+        {title: "로그인 화면", description: "소셜 로그인 인터페이스", imageUrl: "/blackmarket/login.png"},
+        {title: "회사 소개", description: "회사별 거래소 정보", imageUrl: "/blackmarket/aboutus.png"},
+        {title: "퀘스트 시스템", description: "거래 관련 퀘스트 및 보상", imageUrl: "/blackmarket/quest.png"}
       ],
       lessons: [
-        "Socket.io를 활용한 실시간 통신 구현 방법",
-        "Zustand를 활용한 효율적인 상태 관리",
-        "P2P 거래 시스템의 보안 고려사항",
-        "사용자 경험을 고려한 UI/UX 설계"
+        "Zustand를 통한 여러 state들의 효율적인 관리 방법 - 사용자 인증, 거래 상태, 채팅 데이터, 알림 등을 독립적인 store로 분리하여 관리하면서도 필요한 경우 store 간 연동이 가능한 구조 설계",
+        "Error Boundary의 중요성, 특히 이런 대시보드 형태에선 필수 - 거래 실패, API 오류, 네트워크 문제 등 다양한 에러 상황에서 사용자 경험을 해치지 않으면서도 적절한 에러 처리와 복구 방안 제공",
+        "전통 CSS로는 스타일링에 너무 많은 시간이 든다. 다음에는 Tailwind나 CSS-in-JS를 써봐야겠다 - 반응형 디자인, 다크모드, 애니메이션 등을 구현할 때 CSS 클래스 관리와 스타일 충돌 해결에 예상보다 많은 시간 소요",
+        "코드 스플리팅과 레이지 로딩의 중요성 - 거래 목록, 채팅, 사용자 프로필 등 기능별로 번들을 분리하여 초기 로딩 속도 개선 및 사용자가 실제로 사용하는 기능만 로드하는 최적화 경험",
+        "깃 브랜치 전략 - feature/거래시스템, feature/채팅, feature/인증 등 기능별 브랜치 분리와 develop 브랜치를 통한 통합 테스트, main 브랜치 배포 전 code review 프로세스 구축"
       ],
       githubUrl: "https://github.com/Crush-on-Study"
     },
@@ -348,6 +353,24 @@ const ProjectsPage = () => {
         <img 
           src={src} 
           alt="Portfolio preview"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      );
+    }
+
+    // Black Market project: cycle through real screenshots in public/blackmarket
+    if (project?.id === 2) {
+      const imgs = [
+        '/blackmarket/main.png',
+        '/blackmarket/login.png',
+        '/blackmarket/aboutus.png',
+        '/blackmarket/quest.png'
+      ];
+      const src = imgs[currentImageIndex % imgs.length];
+      return (
+        <img 
+          src={src} 
+          alt="Black Market preview"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       );

@@ -1,6 +1,7 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import LoadingSpinner from './components/common/LoadingSpinner';
+import ErrorBoundary from './components/common/ErrorBoundary';
 import { preloadStrategies } from './utils/preloadUtils';
 import './App.css';
 
@@ -51,16 +52,18 @@ function App() {
     <Router>
       <div className="App">
         <Preloader />
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<IntroPage />} />
-                            <Route path="/home" element={<HomePage />} />
-                <Route path="/skills" element={<SkillsPage />} />
-                <Route path="/experience" element={<ExperiencePage />} />
-                <Route path="/projects" element={<ProjectsPage />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<IntroPage />} />
+              <Route path="/home" element={<HomePage />} />
+              <Route path="/skills" element={<SkillsPage />} />
+              <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </Router>
   );
