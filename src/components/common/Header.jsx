@@ -63,7 +63,7 @@ const Header = ({ activeIndex = 0 }) => {
         <div className="social-links">
           <div 
             className="social-icon github-icon"
-            onClick={() => handleSocialClick('https://github.com/Crush-on-Study')}
+            onClick={() => handleSocialClick('https://github.com/Binkoon')}
             title="GitHub"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
